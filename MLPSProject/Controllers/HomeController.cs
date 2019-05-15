@@ -26,5 +26,29 @@ namespace MLPSProject.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public ActionResult RegisteredLogin()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult UnRegisteredLogin()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Enquiry()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult UnRegisterApply()
+        {
+            return View();
+        }
     }
 }
