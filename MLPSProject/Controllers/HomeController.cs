@@ -61,6 +61,7 @@ namespace MLPSProject.Controllers
             else
             {
                 ModelState.AddModelError("", "Invalid login attempt.");
+                ViewBag.IsError = "Invalid login attempt";
                 return RedirectToAction("Index", "Home");
             }
         }

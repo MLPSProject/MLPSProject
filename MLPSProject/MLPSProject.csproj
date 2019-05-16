@@ -135,13 +135,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905151617169_CreateAllTables.cs" />
-    <Compile Include="Migrations\201905151617169_CreateAllTables.Designer.cs">
-      <DependentUpon>201905151617169_CreateAllTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905151621527_CreateForeignKeys.cs" />
-    <Compile Include="Migrations\201905151621527_CreateForeignKeys.Designer.cs">
-      <DependentUpon>201905151621527_CreateForeignKeys.cs</DependentUpon>
+    <Compile Include="Migrations\201905161626237_Changes.cs" />
+    <Compile Include="Migrations\201905161626237_Changes.Designer.cs">
+      <DependentUpon>201905161626237_Changes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -178,6 +174,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -191,17 +188,18 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Registration\RegisteredUser.cshtml" />
     <Content Include="Views\Registration\UnRegisteredUser.cshtml" />
     <Content Include="Views\Officer\Index.cshtml" />
     <Content Include="Views\Loan\Index.cshtml" />
     <Content Include="Views\Home\UnRegisteredLogin.cshtml" />
+    <Content Include="Views\Shared\_CustomerLayout.cshtml" />
+    <Content Include="Views\Shared\_CustomerHomePageLayout.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Authorizer\" />
-    <Folder Include="Views\Customer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -217,11 +215,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905151617169_CreateAllTables.resx">
-      <DependentUpon>201905151617169_CreateAllTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905151621527_CreateForeignKeys.resx">
-      <DependentUpon>201905151621527_CreateForeignKeys.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905161626237_Changes.resx">
+      <DependentUpon>201905161626237_Changes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

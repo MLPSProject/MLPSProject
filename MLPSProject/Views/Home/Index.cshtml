@@ -113,10 +113,8 @@
 @using (Html.BeginForm("RegisteredLogin", "Home"))
 {
     @Html.AntiForgeryToken()
-    if (ViewBag.IsError != null)
-    {
-        <div class="content-alert">@ViewBag.IsError</div>
-    }
+
+
 
     <body>
 
@@ -128,7 +126,7 @@
                 Registered User
             </button>
 
-            <button class="btn" type="submit" style="width:auto;background-color:grey;" onclick="window.location.href('@Url.Action("UnRegisteredLogin", "Home")')">Un-Registered User</button>
+            <button class="btn" type="submit" style="width:auto;background-color:grey;" >Un-Registered User</button>
 
         </div>
 
@@ -157,40 +155,77 @@
                         </label>
                         <br />
                     </div>*@
-                <div class="form-group" align="center" id="bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group" align="center" id="bg">
 
-                    @Html.LabelFor(model => model.vEmailID, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.vEmailID, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.vEmailID, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.vEmailID, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.vEmailID, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.vEmailID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group" align="center">
+                                @Html.LabelFor(model => model.vPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.vPassword, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.vPassword, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+
+                        </div>
+                        <div class="col-6">
+                            <label>
+                                <input type="checkbox" checked="checked" name="remember" align="center"> Remember me
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+
+                        </div>
+                        <div class="col-3">
+                            <input type="submit" class="btn btn-primary" value="Login" />
+                        </div>
+                        <div class="col-3">
+                            @* <div class="form-group" style="text-align:center">*@
+                            <button class="btn btn-primary" style="width:auto;">Register</button>
+                            @*</div>*@
+                        </div>
                     </div>
                 </div>
-                <div class="form-group" align="center">
-                    @Html.LabelFor(model => model.vPassword, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.vPassword, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.vPassword, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-2">
-                        <input type="submit" class="btn btn-primary" value="Login" />
-                    </div>
-                </div>
-
-                <br />
-                <label>
-                    <input type="checkbox" checked="checked" name="remember" align="center"> Remember me
-                </label>
-
-                <div class="form-group" style="text-align:center">
-                    <button class="btn btn-success" style="width:auto;">Register</button>
-                </div>
-
+                @if (ViewBag.IsError != null)
+                {
+                    <h3 style="color:red">@ViewBag.IsError</h3>
+                }
 
             </form>
         </div>
+
+
+
+        @*<div class="form-group">
+                <div class="col-md-offset-2">
+                    <div class="container">
+
+
+                    </div>
+
+                </div>
+            </div>*@
+
+
+
 
         <!-- SlideShow-->
 
@@ -246,27 +281,40 @@
                 }
 
             }
+
         </script>
 
 
     </body>
 }
 
-    @*<div class="form-group">
-            @Html.LabelFor(model => model.vEmailID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.vEmailID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.vEmailID, "", new { @class = "text-danger" })
-            </div>
-        </div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.vPassword, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.vPassword, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.vPassword, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
+    <script>
+        $('.btn').click(function () {
+            var link = "UnRegisteredLogin/Home";
+            window.location.href = link;
+        });
+    </script>
+}
+
+
+@*<div class="form-group">
+        @Html.LabelFor(model => model.vEmailID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.vEmailID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.vEmailID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.vPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.vPassword, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.vPassword, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
 
 
 
