@@ -1,13 +1,15 @@
-﻿@{
+﻿@model MLPSProject.Models.RegisteredUser
+@{
     ViewBag.Title = "Home Page";
 }
 
-
-<br />
-
+@*Updated Project*@
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
 <style>
     body {
         font-family: Arial, Helvetica, sans-serif;
@@ -108,121 +110,167 @@
 </style>
 
 
+@using (Html.BeginForm("RegisteredLogin", "Home"))
+{
+    @Html.AntiForgeryToken()
+    if (ViewBag.IsError != null)
+    {
+        <div class="content-alert">@ViewBag.IsError</div>
+    }
 
+    <body>
 
-<body>
+        <!--Register Button-->
 
-    <div class="text-right">
-        <button class="btn" type="button"
-                onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
-            RegisteredUser
-        </button>
+        <div class="text-right">
+            <button class="btn" type="button"
+                    onclick="document.getElementById('id01').style.display='block'" style="width:auto; background-color:grey;">
+                Registered User
+            </button>
 
-        <button class="btn" type="button" style="width:auto;"> UnRegisteredUser</button>
+            <button class="btn" type="submit" style="width:auto;background-color:grey;" onclick="window.location.href('@Url.Action("UnRegisteredLogin", "Home")')">Un-Registered User</button>
 
+        </div>
 
-    </div>
+        <!-- Login Form-->
+        <div id="id01" class="modal">
 
-    <div id="id01" class="modal">
+            <form class="modal-content animate" action="/action_page.php">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal"> &times;</span>
+                    <img src="~/Images/santanderJusticia.jpg" alt="Avatar" width="180" height="80">
+                </div>
 
-        <form class="modal-content animate" action="/action_page.php">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal"> &times;</span>
-                <img src="~/Images/download (2).jpg" alt="Avatar" width="200" height="200">
-            </div>
+                @*<div class="container-fluid text-center">
+                        <label for="uname"> <b> Username</b> </label>
+                        <input type="text" placeholder="Enter Username" name="uname">
+                        <br />
 
-            <div class="container text-center">
-                <label for="uname"> <b> Username</b> </label>
-                <input type="text" placeholder="Enter Username" name="uname">
-                <br />
+                        <label for="psw"> <b> Password</b> </label>
+                        <input type="password" placeholder="Enter Password" name="psw">
+                        <br />
 
-                <label for="psw"> <b> Password</b> </label>
-                <input type="password" placeholder="Enter Password" name="psw">
-                <br />
+                        <button type="submit" class="btn btn-success" style="width:auto; "> Login</button>
+                        <br />
+                        <label>
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>
+                        <br />
+                    </div>*@
+                <div class="form-group" align="center" id="bg">
 
-                <button type="submit" class="btn btn-success" style="width:auto; "> Login</button>
+                    @Html.LabelFor(model => model.vEmailID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.vEmailID, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.vEmailID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group" align="center">
+                    @Html.LabelFor(model => model.vPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.vPassword, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.vPassword, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2">
+                        <input type="submit" class="btn btn-primary" value="Login" />
+                    </div>
+                </div>
+
                 <br />
                 <label>
-                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                    <input type="checkbox" checked="checked" name="remember" align="center"> Remember me
                 </label>
-                <br />
+
+                <div class="form-group" style="text-align:center">
+                    <button class="btn btn-success" style="width:auto;">Register</button>
+                </div>
+
+
+            </form>
+        </div>
+
+        <!-- SlideShow-->
+
+        <div class="container">
+
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+
+                </ol>
+
+
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="~/Images/Billboardhome.jpg" alt="HomeImage" style="width:100%; height:100%;">
+                    </div>
+
+                    <div class="item">
+                        <img src="~/Images/Billboardhomeimage.jpg" alt="WoodHome" style="width:100%; height:100%;">
+                    </div>
+
+                    <div class="item">
+                        <img src="~/Images/BillboardImage.jpg" alt="LoanImage" style="width:100%; height:100%;">
+                    </div>
+                </div>
+
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+
+
+
+
             </div>
-            <div class="form-group" style="text-align:center">
-                <button class="btn btn-success" style="width:auto;">Register</button>
-            </div>
-            <div class="container" style="background-color:#f1f1f1">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn"> Cancel</button>
-                @*<span class="psw"> Forgot <a href="#"> password?</a> </span>*@
-            </div>
+        </div>
 
-        </form>
-    </div>
+        <script>
+            // Get the modal
+            var modal = document.getElementById('id01');
 
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
 
-
-    <script>
-        // Get the modal
-        var modal = document.getElementById('id01');
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
             }
-
-        }
-    </script>
+        </script>
 
 
-</body>
+    </body>
+}
 
-
-@*<div class="form-group">
-        @Html.LabelFor(model => model.vEmailID, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.vEmailID, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.vEmailID, "", new { @class = "text-danger" })
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.vEmailID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.vEmailID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.vEmailID, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.vPassword, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.vPassword, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.vPassword, "", new { @class = "text-danger" })
-        </div>
-    </div>*@
-
+        <div class="form-group">
+            @Html.LabelFor(model => model.vPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.vPassword, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.vPassword, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
 
 
 
 
 
 
-@*<div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </div>
-    </div>*@

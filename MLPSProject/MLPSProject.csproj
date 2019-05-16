@@ -161,7 +161,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\download %282%29.jpg" />
+    <Content Include="Images\Billboardhome.jpg" />
+    <Content Include="Images\Billboardhomeimage.jpg" />
+    <Content Include="Images\BillboardImage.jpg" />
+    <Content Include="Images\santanderJusticia.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -193,6 +196,7 @@
     <Content Include="Views\Registration\UnRegisteredUser.cshtml" />
     <Content Include="Views\Officer\Index.cshtml" />
     <Content Include="Views\Loan\Index.cshtml" />
+    <Content Include="Views\Home\UnRegisteredLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
