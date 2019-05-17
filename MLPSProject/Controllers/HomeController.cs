@@ -56,7 +56,7 @@ namespace MLPSProject.Controllers
             var userName = dbContext.RegisteredUsers.SingleOrDefault(c => c.vEmailID == registeredUser.vEmailID && c.vPassword == registeredUser.vPassword);
             if (userName != null)
             {
-                return RedirectToAction("Index", "Loan");
+                return RedirectToAction("Index", "Customer");
             }
             else
             {
@@ -72,7 +72,27 @@ namespace MLPSProject.Controllers
             return View();
         }
 
-        
+
+        public ActionResult UnRegisteredUserLogin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult UnRegisteredUserLogin(UnRegisteredUser unRegisteredUser)
+        {
+            var customer = dbContext.UnRegisteredUsers.SingleOrDefault(c => c.vEmailID == unRegisteredUser.vEmailID && c.vMobile == unRegisteredUser.vMobile);
+            if (customer != null)
+            {
+                return RedirectToAction("Index", "Loan");
+            }
+            else
+            {
+                return RedirectToAction("UnRegisteredLogin");
+            }
+            
+        }
+
 
         [HttpGet]
         public ActionResult Enquiry()
@@ -85,5 +105,8 @@ namespace MLPSProject.Controllers
         {
             return View();
         }
+
+
+       
     }
 }

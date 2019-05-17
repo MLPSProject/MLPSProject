@@ -44,7 +44,7 @@ namespace MLPSProject.Controllers
         {
             dbContext.UnRegisteredUsers.Add(unRegisteredUser);
             dbContext.SaveChanges();
-            return RedirectToAction("Index", "Loan");
+            return RedirectToAction("UnRegisteredLogin", "Home");
         }
     }
 }

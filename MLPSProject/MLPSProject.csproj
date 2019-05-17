@@ -126,18 +126,28 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuthorizerController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InspectorController.cs" />
     <Compile Include="Controllers\LoanController.cs" />
     <Compile Include="Controllers\OfficerController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905161626237_Changes.cs" />
-    <Compile Include="Migrations\201905161626237_Changes.Designer.cs">
-      <DependentUpon>201905161626237_Changes.cs</DependentUpon>
+    <Compile Include="Migrations\201905170634396_Update.cs" />
+    <Compile Include="Migrations\201905170634396_Update.Designer.cs">
+      <DependentUpon>201905170634396_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905170922584_PasswordAddedEmployee.cs" />
+    <Compile Include="Migrations\201905170922584_PasswordAddedEmployee.Designer.cs">
+      <DependentUpon>201905170922584_PasswordAddedEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905170929573_EmailandMobileNoAddedEmployee.cs" />
+    <Compile Include="Migrations\201905170929573_EmailandMobileNoAddedEmployee.Designer.cs">
+      <DependentUpon>201905170929573_EmailandMobileNoAddedEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -199,10 +209,13 @@
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Loan\Others.cshtml" />
     <Content Include="Views\Loan\Self.cshtml" />
+    <Content Include="Views\Home\UnRegisteredUserLogin.cshtml" />
+    <Content Include="Views\Authorizer\Index.cshtml" />
+    <Content Include="Views\Inspector\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Authorizer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -218,8 +231,14 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905161626237_Changes.resx">
-      <DependentUpon>201905161626237_Changes.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905170634396_Update.resx">
+      <DependentUpon>201905170634396_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905170922584_PasswordAddedEmployee.resx">
+      <DependentUpon>201905170922584_PasswordAddedEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905170929573_EmailandMobileNoAddedEmployee.resx">
+      <DependentUpon>201905170929573_EmailandMobileNoAddedEmployee.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

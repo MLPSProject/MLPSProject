@@ -11,6 +11,24 @@
 
 
 <style>
+
+    .bgImage {
+        background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100%;
+        font-family: 'Numans', sans-serif;
+        color: white;
+    }
+    body {
+        background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100%;
+        font-family: 'Numans', sans-serif;
+
+    }
+
     body {
         font-family: Arial, Helvetica, sans-serif;
     }
@@ -116,7 +134,7 @@
 
 
 
-    <body>
+    <body class="bgImage">
 
         <!--Register Button-->
 
@@ -126,19 +144,20 @@
                 Registered User
             </button>
 
-            <button class="btn" type="button" style="width:auto;background-color:grey;" >Un-Registered User</button>
+            <button class="btn" type="button" style="width:auto;background-color:grey;">Un-Registered User</button>
 
         </div>
 
         <!-- Login Form-->
         <div id="id01" class="modal">
 
-            <div class="modal-content animate">
+            <div class="modal-content animate" id="loginID">
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal"> &times;</span>
                     <img src="~/Images/santanderJusticia.jpg" alt="Avatar" width="180" height="80">
                 </div>
-
+                <br />
+                <br />
                 @*<div class="container-fluid text-center">
                         <label for="uname"> <b> Username</b> </label>
                         <input type="text" placeholder="Enter Username" name="uname">
@@ -157,25 +176,21 @@
                     </div>*@
                 <div class="container">
                     <div class="row">
-                        <div class="col-12">
-                            <div class="form-group" align="center" id="bg">
+                        <div class="form-horizontal">
+                            <div class="form-group col-md-12" align="center">
 
-                                @Html.LabelFor(model => model.vEmailID, htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-10">
-                                    @Html.EditorFor(model => model.vEmailID, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.vEmailID, "", new { @class = "text-danger" })
-                                </div>
+                                @Html.LabelFor(model => model.vEmailID, htmlAttributes: new { @class = "control-label " })
+                                @Html.EditorFor(model => model.vEmailID, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.vEmailID, "", new { @class = "text-danger" })
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12">
-                            <div class="form-group" align="center">
-                                @Html.LabelFor(model => model.vPassword, htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-10">
-                                    @Html.EditorFor(model => model.vPassword, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.vPassword, "", new { @class = "text-danger" })
-                                </div>
+                        <div class="form-horizontal">
+                            <div class="form-group col-md-12" align="center">
+                                @Html.LabelFor(model => model.vPassword, htmlAttributes: new { @class = "control-label " })
+                                @Html.EditorFor(model => model.vPassword, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.vEmailID, "", new { @class = "text-danger" })
                             </div>
                         </div>
                     </div>
@@ -269,7 +284,7 @@
 
             </div>
         </div>
-       
+
 
         <script>
             // Get the modal
@@ -293,11 +308,11 @@
     @Scripts.Render("~/bundles/jqueryval")
 
     @*<script>
-        $('.btn').click(function () {
-            var link = "UnRegisteredLogin/Home";
-            window.location.href = link;
-        });
-    </script>*@
+            $('.btn').click(function () {
+                var link = "UnRegisteredLogin/Home";
+                window.location.href = link;
+            });
+        </script>*@
 }
 
 

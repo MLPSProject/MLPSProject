@@ -1,8 +1,28 @@
-﻿
+﻿@model MLPSProject.Models.Employee
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Officer Home Page</h2>
+<head>
+    <style>
+    </style>
+</head>
+@using (Html.BeginForm())
+{
+    <body>
+        <div class="container">
+            <div class="dropdown">
+                <button id="btn" class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                    @Session["User"]
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" id="dd">
+                    <li>@Html.ActionLink("Logout", "LogOff", "Admin")</li>
+                </ul>
 
+            </div>
+        </div>
+    </body>
+}
