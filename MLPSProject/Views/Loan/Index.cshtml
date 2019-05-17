@@ -1,8 +1,28 @@
-﻿
+﻿@model MLPSProject.Models.PropertyDetail
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Loan Home Page To Apply Loan</h2>
 
+<link href="~/Content/bootstrap.css" rel="stylesheet" / >
+
+<center><h2> Property Holder</h2></center>
+<br />
+<br />
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-5">
+        <div class="form-group" style="width:300px;text-align:center;background-color:ActiveBorder">
+            @Html.ActionLink("Self", "Self", "Loan", null, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="form-group" style="width:300px;text-align:center">
+            @Html.ActionLink("Others", "Others", "Loan", null, new { @class = "form-control" })
+        </div>
+    </div>
+</div>
+<div>
+
+</div>

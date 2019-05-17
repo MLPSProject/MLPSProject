@@ -11,17 +11,27 @@ namespace MLPSProject.Models
     {
         [Key]
         public int Id { get; set; }
+        [Required]
+        [Display(Name = "Property Holder")]
         public string vPropertyHolderName { get; set; }
+        [Required]
+        [Display(Name = "Property Type")]
         public string vPropertyType { get; set; }
+        [Required]
+        [Display(Name = "Property Address")]
         public string PropertyAddress { get; set; }
         public int iMarketValue { get; set; }
         public string vRemarks { get; set; }
-
+        [Required]
+        [Display(Name = "Id Proof")]
         public string IdProof { get; set; }
-
+        [Required]
+        [Display(Name = "Address Proof")]
         public string AddressProof { get; set; }
-
+        [Required]
+        [Display(Name = "Property Documents")]
         public string PropertyAgreement { get; set; }
+
 
         //References
 
