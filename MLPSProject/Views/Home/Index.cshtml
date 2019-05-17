@@ -126,14 +126,14 @@
                 Registered User
             </button>
 
-            <button class="btn" type="submit" style="width:auto;background-color:grey;" >Un-Registered User</button>
+            <button class="btn" type="button" style="width:auto;background-color:grey;" >Un-Registered User</button>
 
         </div>
 
         <!-- Login Form-->
         <div id="id01" class="modal">
 
-            <form class="modal-content animate" action="/action_page.php">
+            <div class="modal-content animate">
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal"> &times;</span>
                     <img src="~/Images/santanderJusticia.jpg" alt="Avatar" width="180" height="80">
@@ -209,7 +209,7 @@
                     <h3 style="color:red">@ViewBag.IsError</h3>
                 }
 
-            </form>
+            </div>
         </div>
 
 
@@ -269,6 +269,7 @@
 
             </div>
         </div>
+       
 
         <script>
             // Get the modal
@@ -291,12 +292,12 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 
-    <script>
+    @*<script>
         $('.btn').click(function () {
             var link = "UnRegisteredLogin/Home";
             window.location.href = link;
         });
-    </script>
+    </script>*@
 }
 
 
