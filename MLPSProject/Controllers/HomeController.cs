@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MLPSProject.Controllers
 {
@@ -43,10 +44,10 @@ namespace MLPSProject.Controllers
         public ActionResult RegisteredLogin()
         {
             var UserPersist = TempData["User"];
-            if (TempData["IsError"] != null)
-            {
+            //if (TempData["IsError"] != null)
+            //{
                 ViewBag.IsError = "Invalid login attempt";
-            }
+            //}
             return View();
         }
 
@@ -54,6 +55,7 @@ namespace MLPSProject.Controllers
         public ActionResult RegisteredLogin(RegisteredUser registeredUser)
         {
             var userName = dbContext.RegisteredUsers.SingleOrDefault(c => c.vEmailID == registeredUser.vEmailID && c.vPassword == registeredUser.vPassword);
+            Session["User"] = registeredUser.vEmailID;
             if (userName != null)
             {
                 return RedirectToAction("Index", "Customer");
@@ -107,6 +109,14 @@ namespace MLPSProject.Controllers
         }
 
 
-       
+        public ActionResult LogOff()
+        {
+            //AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            FormsAuthentication.SignOut();
+            Session.Clear();
+            Session.Abandon();
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 }

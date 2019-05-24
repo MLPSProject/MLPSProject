@@ -1,4 +1,4 @@
-﻿@model MLPSProject.ViewModel.LoanPropertyViewModel
+﻿@model MLPSProject.Models.PropertyDetail
 
 @{
     /**/
@@ -13,156 +13,128 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>LoanDetail</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
+<div class="form-horizontal">
+    <h4>LoanDetail</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @*<div class="form-group">
             @Html.LabelFor(model => model.LoanDetail.vName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.LoanDetail.vName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.LoanDetail.vName, "", new { @class = "text-danger" })
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LoanDetail.vMobile, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LoanDetail.vMobile, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LoanDetail.vMobile, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LoanDetail.vEmail, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LoanDetail.vEmail, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LoanDetail.vEmail, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LoanDetail.vCity, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LoanDetail.vCity, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LoanDetail.vCity, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LoanDetail.iAge, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LoanDetail.iAge, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LoanDetail.iAge, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LoanDetail.vOccupation, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LoanDetail.vOccupation, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LoanDetail.vOccupation, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LoanDetail.vAddress, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LoanDetail.vAddress, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LoanDetail.vAddress, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LoanDetail.dLoanAmount, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LoanDetail.dLoanAmount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LoanDetail.dLoanAmount, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        
-        <div class="form-group">
-            @Html.LabelFor(model => model.PropertyDetail.vPropertyType, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PropertyDetail.vPropertyType, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PropertyDetail.vPropertyType, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LoanDetail.iRateOfInterest, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LoanDetail.iRateOfInterest, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LoanDetail.iRateOfInterest, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PropertyDetail.PropertyAddress, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PropertyDetail.PropertyAddress, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PropertyDetail.PropertyAddress, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LoanDetail.dtLoanAppliedDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LoanDetail.dtLoanAppliedDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LoanDetail.dtLoanAppliedDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        </div>*@
 
 
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LoanDetail.iDuration, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LoanDetail.iDuration, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LoanDetail.iDuration, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PropertyDetail.IdProof, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PropertyDetail.IdProof, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PropertyDetail.IdProof, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PropertyDetail.AddressProof, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PropertyDetail.AddressProof, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PropertyDetail.AddressProof, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PropertyDetail.PropertyAgreement, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PropertyDetail.PropertyAgreement, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PropertyDetail.PropertyAgreement, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.vPropertyHolderName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.vPropertyHolderName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.vPropertyHolderName, "", new { @class = "text-danger" })
         </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.vPropertyType, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @{
+                List<SelectListItem> listItems = new List<SelectListItem>();
+                listItems.Add(new SelectListItem
+                {
+                    Text = "Independent House",
+                    Value = "Independent House"
+                });
+                listItems.Add(new SelectListItem
+                {
+                    Text = "Duplex House",
+                    Value = "Duplex House"
+                });
+                listItems.Add(new SelectListItem
+                {
+                    Text = "Triplex House",
+                    Value = "Triplex House"
+                });
+            }
+            @Html.DropDownListFor(model => model.vPropertyType, listItems, "--Select Loan Type--", new { @class = "form-control" })
+
+            @Html.ValidationMessageFor(model => model.vPropertyType, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PropertyAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PropertyAddress, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PropertyAddress, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IdProof, htmlAttributes: new { @class = "control-label col-md-2" })
+        
+            <div class="col-md-3">
+
+                @*@Html.EditorFor(model => model.PropertyDetail.IdProof, new { htmlAttributes = new { @class = "form-control" } })*@
+
+                @*<input type="file" name="IdProof" />*@
+                @Html.EditorFor(model => model.IdProof, new { htmlAttributes = new { @class = "form-control", type = "file" } })
+                @Html.ValidationMessageFor(model => model.IdProof, "", new { @class = "text-danger" })
+                
+            </div>
+            <div class="col-md-7">
+                <input type="button" onclick="@("window.location.href='" + @Url.Action("UploadIDProof", "Loan") + "'");" name="ImageFile"  class="btn btn-sm" value="Upload" />
+            </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.AddressProof, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @*<input type="file" name="AddressProof" />*@
+            @Html.EditorFor(model => model.AddressProof, new { htmlAttributes = new { @class = "form-control", type = "file" } })
+            @Html.ValidationMessageFor(model => model.AddressProof, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-7">
+            <input type="button" onclick="@("window.location.href='" + @Url.Action("UploadIDProof1", "Loan") +"'");" class="btn btn-sm" value="Upload" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            @Html.LabelFor(model => model.PropertyAgreement, htmlAttributes: new { @class = "control-label col-md-2" })
+            
+                <div class="col-md-3">
+                    @*<input type="file" name="PropertyAgreement" />*@
+                    @Html.EditorFor(model => model.PropertyAgreement, new { htmlAttributes = new { @class = "form-control", type = "file" } })
+                    @Html.ValidationMessageFor(model => model.PropertyAgreement, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-7">
+                    <input type="button" onclick="@("window.location.href='" + @Url.Action("UploadIDProof2", "Loan") + "'");" class="btn btn-sm" value="Upload" />
+                </div>
+            
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Submit" class="btn btn-default" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10 text-success">
+            @ViewBag.UploadStatus
+        </div>
+    </div>
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
 }
+
+
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

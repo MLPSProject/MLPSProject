@@ -30,6 +30,7 @@ namespace MLPSProject.Controllers
         public ActionResult RegisteredUser(RegisteredUser registeredUser)
         {
             dbContext.RegisteredUsers.Add(registeredUser);
+            registeredUser.dtDateOfRegistration = DateTime.Now.ToString("yyyy-mm-dd");
             dbContext.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
@@ -43,6 +44,7 @@ namespace MLPSProject.Controllers
         public ActionResult UnRegisteredUser(UnRegisteredUser unRegisteredUser)
         {
             dbContext.UnRegisteredUsers.Add(unRegisteredUser);
+            unRegisteredUser.dtDateOfRegistration = DateTime.Now.ToString("yyyy-mm-dd");
             dbContext.SaveChanges();
             return RedirectToAction("UnRegisteredLogin", "Home");
         }

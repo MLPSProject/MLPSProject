@@ -20,7 +20,8 @@ namespace MLPSProject.Models
         [Required]
         [Display(Name = "Property Address")]
         public string PropertyAddress { get; set; }
-        public int iMarketValue { get; set; }
+        public int? iMarketValue { get; set; }
+
         public string vRemarks { get; set; }
         [Required]
         [Display(Name = "Id Proof")]

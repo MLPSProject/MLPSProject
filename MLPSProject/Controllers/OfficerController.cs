@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace MLPSProject.Controllers
 {
@@ -21,17 +22,22 @@ namespace MLPSProject.Controllers
         // GET: Officer
         public ActionResult Index()
         {
-            Employee employee = new Employee();
-            using (ApplicationDbContext db = new ApplicationDbContext())
+            if (Session["User"] != null)
             {
-                //var userId = User.Identity.GetUserId();
+                var list = dbContext.LoanDetails.Include(c => c.PropertyDetail).ToList();
+                return View(list);
             }
-                return View();
+            else
+            {
+                return RedirectToAction("Index", "Admin");
+            }
+            
         }
 
         public ActionResult Pending()
         {
-            return View();
+            var list = dbContext.LoanDetails.Include(c => c.PropertyDetail).ToList();
+            return View(list);
         }
 
         public ActionResult Process()

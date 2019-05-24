@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -13,17 +14,24 @@ namespace MLPSProject.Models
         [Required]
         [Display(Name = "Name")]
         public string vName { get; set; }
+
         [Required]
+        
         [Display(Name = "Mobile Number")]
         [DataType(DataType.PhoneNumber)]
         public string vMobile { get; set; }
+
+
         [Required]
         [Display(Name = "Email Id")]
         [DataType(DataType.EmailAddress)]
         public string vEmail { get; set; }
+
+
         [Required]
         [Display(Name = "City")]
         public string vCity { get; set; }
+
         [Required]
         [Display(Name = "Age")]
         public int iAge { get; set; }
@@ -54,13 +62,13 @@ namespace MLPSProject.Models
         //References
 
         public RegisteredUser RegisteredUser { get; set; }
-        public int RegisteredUserId { get; set; }
+        public int? RegisteredUserId { get; set; }
 
         public UnRegisteredUser UnRegisteredUser { get; set; }
-        public int UnRegisteredUserId { get; set; }
+        public int? UnRegisteredUserId { get; set; }
 
         public PropertyDetail PropertyDetail { get; set; }
-        public int PropertyDetailId { get; set; }
+        public int? PropertyDetailId { get; set; }
 
     }
 }

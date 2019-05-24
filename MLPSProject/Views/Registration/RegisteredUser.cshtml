@@ -8,21 +8,21 @@
 <h2>RegisteredUser</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>RegisteredUser</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.dtDateOfRegistration, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.dtDateOfRegistration, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.dtDateOfRegistration, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.dtDateOfRegistration, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.dtDateOfRegistration, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.dtDateOfRegistration, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.vFirstName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -51,7 +51,26 @@
         <div class="form-group">
             @Html.LabelFor(model => model.vGender, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.vGender, new { htmlAttributes = new { @class = "form-control" } })
+                @{
+                    List<SelectListItem> listItems = new List<SelectListItem>();
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Male",
+                        Value = "Male"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Female",
+                        Value = "Female"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Others",
+                        Value = "Others"
+                    });
+                }
+                @Html.DropDownListFor(model => model.vGender, listItems, "--Select Gender Type--", new { @class = "form-control" })
+                @*@Html.EditorFor(model => model.vGender, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.vGender, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -59,7 +78,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.vMobile, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.vMobile, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.vMobile, new { @id = "txtLoyalty",@class="form-control" })
                 @Html.ValidationMessageFor(model => model.vMobile, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -118,6 +137,7 @@
             </div>
         </div>
     </div>
+
 }
 
 <div>
@@ -126,4 +146,29 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#txtLoyalty").keydown(function (event) {
+                if (event.shiftKey) {
+                    event.preventDefault();
+                }
+                if (event.keyCode == 46 || event.keyCode == 8) {
+                }
+                else {
+                    if (event.keyCode < 95) {
+                        if (event.keyCode < 48 || event.keyCode > 57) {
+                            event.preventDefault();
+                        }
+                    }
+                    else {
+                        if (event.keyCode < 96 || event.keyCode > 105) {
+                            event.preventDefault();
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 }

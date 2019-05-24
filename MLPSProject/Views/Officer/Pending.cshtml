@@ -1,0 +1,64 @@
+﻿@model List<MLPSProject.Models.LoanDetail>
+@{
+    ViewBag.Title = "Pending";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Pending</h2>
+
+@using (Html.BeginForm())
+{
+    <body>
+        <table id="mortgage" class="table table-striped" cellspacing="0">
+            <thead>
+                <tr>
+                    <th class="th-sm">Name</th>
+                    <th class="th-sm">Email Id</th>
+                    <th class="th-sm">Mobile No.</th>
+                    <th class="th-sm">PropertyType</th>
+                    <th class="th-sm">Property Address</th>
+                    <th class="th-sm">Id Proof</th>
+                    <th class="th-sm">Address Proof</th>
+                    <th class="th-sm">Property Documents</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.vName</td>
+                        <td>@item.vEmail</td>
+                        <td>@item.vMobile</td>
+                        <td>@item.PropertyDetail.vPropertyType</td>
+                        <td>@item.PropertyDetail.PropertyAddress</td>
+                        <td>@item.PropertyDetail.IdProof</td>
+                        <td>@item.PropertyDetail.AddressProof</td>
+                        <td>@item.PropertyDetail.PropertyAgreement</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="form-group" align="center">
+            <div class="row">
+                <input class="btn btn-primary" onclick="@("window.location.href='" + @Url.Action("Index", "Inspector") + "'");"   type="button" value="Assign" />
+            </div>
+
+        </div>
+
+    </body>
+    
+}
+@section Scripts {
+
+    @*<link href="~/Content/DataTables/dataTables.bootstrap.css" rel="stylesheet" />*@
+    <link href="~/Content/DataTables/jquery.dataTables.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.dataTables.js"></script>
+    <script src="~/Scripts/dataTables.bootstrap4.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#mortgage").DataTable();
+        });
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}
