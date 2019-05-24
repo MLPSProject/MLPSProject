@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -37,13 +38,17 @@ namespace MLPSProject.Models
 
         [Required]
         [Display(Name = "Mobile Number")]
-        [DataType(DataType.PhoneNumber)]
+        //[DataType(DataType.PhoneNumber)]
+        [Column(TypeName ="varchar")]
+        [RegularExpression(@"^([0-9]{10})$", ErrorMessage = "Invalid Mobile Number.")]
+        [Index("Ix_vMobile", IsClustered =false, Order = 1, IsUnique = true)]
         public string vMobile { get; set; }
 
         [Required]
         [StringLength(100)]
         [Display(Name = "Email Id")]
         [DataType(DataType.EmailAddress)]
+        //[Index("Ix_vEmailID", Order = 2, IsUnique = true)]
         public string vEmailID { get; set; }
 
         [Required]
@@ -63,14 +68,16 @@ namespace MLPSProject.Models
 
 
         [Required]
-        [StringLength(100)]
         [Display(Name = "Password")]
         [DataType(DataType.Password)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         public string vPassword { get; set; }
 
         [Required]
         [StringLength(100)]
         [Display(Name = "Confirm Password")]
+        [DataType(DataType.Password)]
+        [Compare("vPassword", ErrorMessage = "The password and confirmation password do not match.")]
         public string vConfirmPassword { get; set; }
 
     }

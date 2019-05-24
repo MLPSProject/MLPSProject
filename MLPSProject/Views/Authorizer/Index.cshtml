@@ -1,4 +1,4 @@
-﻿
+﻿@model List<MLPSProject.Models.LoanDetail>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,3 +6,129 @@
 
 <h2>Authorizer Index Home Page</h2>
 
+<head>
+    <style>
+        #dd {
+            margin-left: 10% !important;
+            float: right;
+            margin-right: -18.5% !important;
+            width: 120px !important;
+            font-weight: 500 !important;
+            left: 5px !important;
+            /*font-size: 20px;*/
+            background-color: white;
+            border-radius: 0px !important;
+        }
+
+        #status {
+            margin-left: 10% !important;
+            float: right;
+            margin-right: 51.5% !important;
+            width: 120px !important;
+            font-weight: 500 !important;
+            left: 5px !important;
+            /*font-size: 20px;*/
+            background-color: white;
+            border-radius: 0px !important;
+        }
+    </style>
+</head>
+@using (Html.BeginForm())
+{
+    <body>
+
+        <div class="container" id="dd">
+            <div class="dropdown">
+                <button id="btn" class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                    @Session["User"]
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" id="dd">
+                    <li>@Html.ActionLink("Logout", "LogOff", "Admin")</li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <br />
+        
+
+
+
+        <br />
+        <br />
+        <br />
+
+        <br />
+        <br />
+
+
+        @{
+            if (Session["User"] != null)
+            {
+                <table id="mortgage" class="table table-striped" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th class="th-sm">Name</th>
+                            <th class="th-sm">Email Id</th>
+                            <th class="th-sm">Mobile No.</th>
+                            <th class="th-sm">Loan Amount</th>
+                            <th class="th-sm">PropertyType</th>
+                            <th class="th-sm">Property Address</th>
+                            <th class="th-sm">Id Proof</th>
+                            <th class="th-sm">Address Proof</th>
+                            <th class="th-sm">Property Documents</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                @*<td>@item.LoanDetail.vName</td>
+                                    <td>@item.LoanDetail.vEmail</td>
+                                    <td>@item.LoanDetail.vMobile</td>
+                                    <td>@item.LoanDetail.dLoanAmount</td>
+                                    <td>@item.PropertyDetail.vPropertyType</td>
+                                    <td>@item.PropertyDetail.PropertyAddress</td>
+                                    <td>@item.PropertyDetail.IdProof</td>
+                                    <td>@item.PropertyDetail.AddressProof</td>
+                                    <td>@item.PropertyDetail.PropertyAgreement</td>*@
+                                <td>@item.vName</td>
+                                <td>@item.vEmail</td>
+                                <td>@item.vMobile</td>
+                                <td>@item.dLoanAmount</td>
+                                <td>@item.PropertyDetail.vPropertyType</td>
+                                <td>@item.PropertyDetail.PropertyAddress</td>
+                                <td>@item.PropertyDetail.IdProof</td>
+                                <td>@item.PropertyDetail.AddressProof</td>
+                                <td>@item.PropertyDetail.PropertyAgreement</td>
+                                <td>@Html.ActionLink("Approve", "", "")</td>
+                                <td>@Html.ActionLink("Reject", "", "")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                Response.Redirect("~/Admin/Index");
+            }
+        }
+
+
+
+
+    </body>
+}
+@section Scripts {
+
+    <link href="~/Content/DataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/DataTables/jquery.dataTables.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.dataTables.js"></script>
+    <script src="~/Scripts/dataTables.bootstrap4.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#mortgage").DataTable();
+        });
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -57,10 +57,10 @@ namespace MLPSProject.Controllers
         public ActionResult LogOff()
         {
             //AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            FormsAuthentication.SignOut();
-            Session.Clear();
+            //FormsAuthentication.SignOut();
+            Session.RemoveAll();
             Session.Abandon();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Admin");
         }
 
     }
