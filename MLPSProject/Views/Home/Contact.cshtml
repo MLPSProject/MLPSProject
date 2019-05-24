@@ -1,17 +1,90 @@
-﻿@{
-    ViewBag.Title = "Contact";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿<head>
+    @{
+        ViewBag.Title = "Contact";
+    }
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <style>
+        iframe {
+            width: 70%;
+            height: 300px;
+            padding-left:60px;
+        }
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+        td {
+            text-align: center;
+            width: 70%;
+            height: 300%;
+        }
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+        #col2 {
+            text-align: right;
+        }
+    </style>
+
+
+</head>
+
+
+<br />
+<br />
+<br />
+<table>
+    <tr>
+        <td>
+            <div id="map-container" class="z-depth-1-half map-container-6">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d328414.33224306995!2d-76.73590608600061!3d40.115709768215225!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3583f70453557677!2sSantander+Bank!5e0!3m2!1sen!2sca!4v1558093767700!5m2!1sen!2sca"
+                        frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </td>
+        <td id="col2">
+            <h2>Address:</h2>
+            <h3>
+                Santander Bank
+            </h3>
+            <p style="font-size:25px;">
+                100 N Northern Way,<br />
+                New York,PA 17402,<br />
+                United States Of America.
+            </p>
+        </td>
+    </tr>
+
+
+</table>
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="row text-center">
+    <div class="col-md-1"> </div>
+    <div class="col-md-4">
+        <a class="btn-floating blue accent-1">
+            <i class="fas fa-map-marker-alt"></i>
+        </a>
+        <p style="font-size:20px;">X8GG+Q4 York, Pennsylvania</p>
+        <p style="font-size:20px;">United States</p>
+    </div>
+
+    <div class="col-md-2">
+        <a class="btn-floating blue accent-1">
+            <i class="fas fa-phone"></i>
+        </a>
+        <p style="font-size:20px;">+1 717-757-1528</p>
+    </div>
+
+    <div class="col-md-2">
+        <a class="btn-floating blue accent-1">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <p style="font-size:20px;">info@gmail.com</p>
+        <p style="font-size:20px;">sale@gmail.com</p>
+    </div>
+    <div class="col-md-3"> </div>
+</div>
+
+
+<br />

@@ -54,6 +54,7 @@ namespace MLPSProject.Controllers
         public ActionResult RegisteredLogin(RegisteredUser registeredUser)
         {
             var userName = dbContext.RegisteredUsers.SingleOrDefault(c => c.vEmailID == registeredUser.vEmailID && c.vPassword == registeredUser.vPassword);
+            Session["User"] = registeredUser.vEmailID;
             if (userName != null)
             {
                 return RedirectToAction("Index", "Customer");

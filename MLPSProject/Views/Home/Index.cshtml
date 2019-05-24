@@ -7,33 +7,20 @@
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <style>
 
-    .bgImage {
-        background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        height: 100%;
-        font-family: 'Numans', sans-serif;
-        color: white;
-    }
-    body {
-        background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        height: 100%;
-        font-family: 'Numans', sans-serif;
-
-    }
 
     body {
         font-family: Arial, Helvetica, sans-serif;
     }
 
-    /* Full-width input fields */
     input[type=text], input[type=password] {
         width: 100%;
         padding: 12px 20px;
@@ -43,9 +30,12 @@
         box-sizing: border-box;
     }
 
+    .carousel-indicators li {
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+    }
     button {
-        background-color: #4CAF50;
-        color: white;
         padding: 14px 20px;
         margin: 8px 0;
         border: none;
@@ -57,20 +47,9 @@
             opacity: 0.8;
         }
 
-    /* Extra styles for the cancel button */
-    .cancelbtn {
-        width: auto;
-        padding: 10px 18px;
-        background-color: #f44336;
+    #Link:link {
+        text-decoration: none;
     }
-
-    /* Center the image and position the close button */
-    .imgcontainer {
-        text-align: center;
-        margin: 24px 0 12px 0;
-        position: relative;
-    }
-
 
     .container {
         padding: 16px;
@@ -79,29 +58,6 @@
     span.psw {
         float: right;
         padding-top: 16px;
-    }
-
-    /* The Modal (background) */
-    .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Sit on top */
-        left: 0;
-        top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        overflow: auto; /* Enable scroll if needed */
-        background-color: rgb(0,0,0); /* Fallback color */
-        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-        padding-top: 60px;
-    }
-
-    /* Modal Content/Box */
-    .modal-content {
-        background-color: #fefefe;
-        margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-        border: 1px solid #888;
-        width: 80%; /* Could be more or less, depending on screen size */
     }
 
     /* The Close Button (x) */
@@ -120,10 +76,12 @@
             cursor: pointer;
         }
 
-    /* Add Zoom Animation */
-    .animate {
-        -webkit-animation: animatezoom 0.6s;
-        animation: animatezoom 0.6s
+    #imgAlign {
+        margin-left: 26%;
+        margin-right: 26%;
+    }
+
+    #closeBtn {
     }
 </style>
 
@@ -132,158 +90,181 @@
 {
     @Html.AntiForgeryToken()
 
+    <body>
 
-
-    <body class="bgImage">
-
-        <!--Register Button-->
-
+        <!--Registration-->
         <div class="text-right">
             <button class="btn" type="button"
-                    onclick="document.getElementById('id01').style.display='block'" style="width:auto; background-color:grey;">
+                    onclick="document.getElementById('id01').style.display='block'" style="width:auto; background-color:#212529;color:white">
                 Registered User
             </button>
 
-            <button class="btn" type="button" style="width:auto;background-color:grey;">Un-Registered User</button>
+            <button class="btn" type="button" style="width:auto;background-color:#212529;color:white">Un-Registered User</button>
 
         </div>
 
-        <!-- Login Form-->
-        <div id="id01" class="modal">
+        <!--Login Form-->
+        <div id="id01" class="modal" align="center">
+            <div class="modal-dialog" role="document" align="center">
+                <div class="modal-content" style="width:100%">
+                    <div class="container " style="text-align:center" align="center">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel panel-default" id="imgAlign">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal"
+                                          data-dismiss="modal" aria-label="Close" aria-hidden="true" id="closeBtn">&times;</span>
+                                    <img src="~/Images/santanderlogo.jpg" style="text-align:center" width="180" height="80" />
+                                    <div class="panel-body">
+                                        <form class="form-horizontal" role="form">
+                                            <div class="form-group" align="center">
+                                                <i class="fas fa-envelope prefix grey-text"></i>
+                                                @Html.LabelFor(model => model.vEmailID, htmlAttributes: new { @class = "control-label " })
+                                                @Html.EditorFor(model => model.vEmailID, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.vEmailID, "", new { @class = "text-danger" })
+                                            </div>
 
-            <div class="modal-content animate" id="loginID">
-                <div class="imgcontainer">
-                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal"> &times;</span>
-                    <img src="~/Images/santanderJusticia.jpg" alt="Avatar" width="180" height="80">
-                </div>
-                <br />
-                <br />
-                @*<div class="container-fluid text-center">
-                        <label for="uname"> <b> Username</b> </label>
-                        <input type="text" placeholder="Enter Username" name="uname">
-                        <br />
+                                            <div class="form-group" align="center">
+                                                <i class="fas fa-lock prefix grey-text"></i>
+                                                @Html.LabelFor(model => model.vPassword, htmlAttributes: new { @class = "control-label " })
+                                                @Html.EditorFor(model => model.vPassword, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.vPassword, "", new { @class = "text-danger" })
+                                            </div>
+                                            <button type="submit" style="text-align:center;width:40%" class="btn btn-success btn-sm">Log in</button>
 
-                        <label for="psw"> <b> Password</b> </label>
-                        <input type="password" placeholder="Enter Password" name="psw">
-                        <br />
+                                            <h5>Not Registered?</h5> <a href="#">Register here</a>
 
-                        <button type="submit" class="btn btn-success" style="width:auto; "> Login</button>
-                        <br />
-                        <label>
-                            <input type="checkbox" checked="checked" name="remember"> Remember me
-                        </label>
-                        <br />
-                    </div>*@
-                <div class="container">
-                    <div class="row">
-                        <div class="form-horizontal">
-                            <div class="form-group col-md-12" align="center">
+                                        </form>
+                                    </div>
+                                </div>
 
-                                @Html.LabelFor(model => model.vEmailID, htmlAttributes: new { @class = "control-label " })
-                                @Html.EditorFor(model => model.vEmailID, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.vEmailID, "", new { @class = "text-danger" })
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-horizontal">
-                            <div class="form-group col-md-12" align="center">
-                                @Html.LabelFor(model => model.vPassword, htmlAttributes: new { @class = "control-label " })
-                                @Html.EditorFor(model => model.vPassword, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.vEmailID, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
 
-                        </div>
-                        <div class="col-6">
-                            <label>
-                                <input type="checkbox" checked="checked" name="remember" align="center"> Remember me
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-6">
-
-                        </div>
-                        <div class="col-3">
-                            <input type="submit" class="btn btn-primary" value="Login" />
-                        </div>
-                        <div class="col-3">
-                            @* <div class="form-group" style="text-align:center">*@
-                            <button class="btn btn-primary" style="width:auto;">Register</button>
-                            @*</div>*@
                         </div>
                     </div>
                 </div>
-                @if (ViewBag.IsError != null)
-                {
-                    <h3 style="color:red">@ViewBag.IsError</h3>
-                }
-
             </div>
         </div>
 
+        <br />
+        <br />
 
+        <!--SlideShow-->
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="~/Images/SliderImage.jpg" alt="First slide" style="width:1250px;height:350px;">
+                    <div class="carousel-caption d-none d-md-block">
 
-        @*<div class="form-group">
-                <div class="col-md-offset-2">
-                    <div class="container">
-
-
-                    </div>
-
-                </div>
-            </div>*@
-
-
-
-
-        <!-- SlideShow-->
-
-        <div class="container">
-
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-
-                </ol>
-
-
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img src="~/Images/Billboardhome.jpg" alt="HomeImage" style="width:100%; height:100%;">
-                    </div>
-
-                    <div class="item">
-                        <img src="~/Images/Billboardhomeimage.jpg" alt="WoodHome" style="width:100%; height:100%;">
-                    </div>
-
-                    <div class="item">
-                        <img src="~/Images/BillboardImage.jpg" alt="LoanImage" style="width:100%; height:100%;">
                     </div>
                 </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="~/Images/banner.jpg" alt="Second slide" style="width:1250px;height:350px;">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="~/Images/imageedited.jpg" alt="Third slide" style="width:1250px;height:350px;">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <br />
 
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+        <!--Home Page Body Content-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <h1 style="text-align:center;color:#0081d4;"> RESPECT ADDS UP</h1>
+                    <p style="font-size:16px;">
+                        Banks are supposed to be respected institutions. But what really matters to us, is being respectful. At Santander<br /> &nbsp;&nbsp;Bank, we want you to prosper. That’s why we treat you and your money with respect. From how we talk and<br />&nbsp;&nbsp;&nbsp;&nbsp;listen, to how we act and how we care for the person behind the account number. And it’s not just about <br />&nbsp;&nbsp;&nbsp;&nbsp; the big stuff. Every little interaction and connection matters. Because it all adds up to something great.
+                    </p>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
 
+            <hr style="border:solid;color:lightgray" />
+            <br />
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="~/Images/backimg.jpg" alt="GirlImage" style="width:500px;height:300px;" />
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-7">
+                    <h1 style="text-align:center;color:#0081d4;">How do Mortgage works?</h1>
+                    <p style="font-size:16px;">
+                        &nbsp;&nbsp;&nbsp;Mortgages are loans you take out to buy real estate or turn your home equity into cash.<br />Once approved, you repay the loan according to specific terms that include interest rate,<br />payment amount and timeline. From rates to payments to closing costs, we’ll help you<br />navigate the mortgage process and find a home loan that’s right for you. Not only that,<br />with Santander Bank’s competitive rates backed by personalized, friendly service, you<br />are sure to feel right at home.
+                    </p>
+                </div>
+            </div>
+            <br />
+            <br />
 
+            <!-- Articles-->
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <h1 style="text-align:center;color:#0081d4;">Live a Life of Prosperity</h1>
+                    <h4 style="text-align:center;">Save, spend, and live life to the fullest with these helpful articles from Prosper and Thrive.</h4>
 
+                </div>
+            </div>
+            <br />
+            <br />
 
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="~/Images/articleimg1.jpg" style="width:100%;height:60%" />
+
+                        <div class="container-fluid" style="background-color:#0099d6;">
+                            <br />
+
+                            <h4 style="color:white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Discover the fastest way to<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get approved</h4>
+
+                            <button><a id="Link" style="color:black" href="https://www.santander.co.uk/personal/support/loans-and-mortgages/what-documents-do-i-need-to-apply">LEARN MORE</a> </button>
+                            @*link:https://www.santander.co.uk/personal/support/loans-and-mortgages/how-do-i-get-a-mortgage*@
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <img src="~/Images/articleimg2.jpg" style="width:100%;height:60%" />
+                        <div class="container-fluid" style="background-color:#0099d6;">
+                            <br />
+                            <h4 style="color:white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mortgage options that fits<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;your needs</h4>
+
+                            <button><a id="Link" style="color:black" href="https://www.santanderbank.com/us/personal/borrowing/mortgages/conventional-loan">LEARN MOR</a>E</button>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="~/Images/articleimg3.jpg" style="width:100%;height:60%" />
+                        <div class="container-fluid" style="background-color:#0099d6;">
+                            <br />
+                            <h4 style="color:white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shave years off your mortgage</h4>
+                            <br />
+                            <button> <a id="Link" style="color:black" href="https://thehub.santanderbank.com/7-things-applying-mortgage/">LEARN MORE</a></button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        <br />
+        <br />
+
+
 
 
         <script>
@@ -313,24 +294,9 @@
                 window.location.href = link;
             });
         </script>*@
+
+
 }
-
-
-@*<div class="form-group">
-        @Html.LabelFor(model => model.vEmailID, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.vEmailID, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.vEmailID, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.vPassword, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.vPassword, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.vPassword, "", new { @class = "text-danger" })
-        </div>
-    </div>*@
 
 
 
