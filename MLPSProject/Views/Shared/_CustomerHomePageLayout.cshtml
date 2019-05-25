@@ -48,12 +48,41 @@
             margin: 5px 2px;
             border-radius: 50%;
         }
+        #dd {
+            margin-left: 10% !important;
+            float: right;
+            margin-right: 7.5px !important;
+            width: 120px !important;
+            font-weight: 500 !important;
+            left: 5px !important;
+            /*font-size: 20px;*/
+            background-color: white;
+            border-radius: 0px !important;
+        }
+        a:hover {
+            background-color: white;
+        }
+        #ddVal{
+            color:blue;
+        }
     </style>
 
 
 </head>
 
+
 <body>
+    <div class="container" id="dd">
+        <div class="dropdown">
+            <button id="btn" class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                @Session["User"]
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu"  >
+                <li id="ddVal" style="background-color:blue;text-align:center">@Html.ActionLink("Logout", "LogOff", "Home")</li>
+            </ul>
+        </div>
+    </div>
 
     <div class="container-fluid " style="background-color:white;">
         <div class="row navbar-static-top ">
@@ -70,7 +99,7 @@
         <ul class="nav navbar-nav" style="padding:20px">
 
             <li class="nav-item" style="margin-left:10px;">
-                @Html.ActionLink("Home", "Index", "Home")
+                @Html.ActionLink("Home", "Index", "Customer")
             </li>
 
             <li class="nav-item">
@@ -89,7 +118,7 @@
 
     <div>
         @RenderBody()
-        
+
 
 
 
@@ -121,8 +150,8 @@
                                 <i class="fab fa-google-plus-g white-text mr-4"> </i>
                             </a>
                             @*<a class="li-ic" style="color:#04508c">
-                             <i class="fab fa-linkedin-in white-text mr-4"> </i>
-                            </a>*@
+                                 <i class="fab fa-linkedin-in white-text mr-4"> </i>
+                                </a>*@
                             <a class="ins-ic" href="https://www.instagram.com/santanderbankus/?hl=en" style="color:#04508c;font-size:25px;">
                                 <i class="fab fa-instagram white-text"> </i>
                             </a>

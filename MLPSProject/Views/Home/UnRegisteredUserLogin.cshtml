@@ -18,7 +18,8 @@
 
 
         html, body {
-            background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+            /*background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');*/
+            background-image: url('../../Images/backgroundimage.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             height: 100%;
@@ -114,7 +115,9 @@
 
 @using (Html.BeginForm())
 {
+
     <body>
+
         <div class="container">
             <div class="d-flex justify-content-center h-100">
                 <div class="card">
@@ -133,15 +136,17 @@
                                     @Html.EditorFor(model => model.vEmailID, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.vEmailID, "", new { @class = "text-danger" })
                                 </div>
-
                             </div>
+
+                            
+
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
                                 @*<input type="password" class="form-control" placeholder="password">*@
                                 <div class="col-md-10">
-                                    @Html.EditorFor(model => model.vMobile, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.vMobile, new { htmlAttributes = new {@id= "txtLoyalty", @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.vMobile, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -157,85 +162,160 @@
                         </form>
                     </div>
                     <div class="card-footer">
-                        <div class="d-flex justify-content-center links">
-                            Don't have an account?@Html.ActionLink("SignUp","UnRegisteredUser","Registration")
-                        </div>
+                        @*<div class="d-flex justify-content-center links">
+                                Don't have an account?@Html.ActionLink("SignUp", "UnRegisteredUser", "Registration")
+                            </div>*@
 
                     </div>
                 </div>
             </div>
         </div>
+
     </body>
+    @*<body>
+            <div class="container">
+                <div class="d-flex justify-content-center h-100">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Sign In</h3>
+
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.vEmailID, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Email Id" } })
+                                        @Html.ValidationMessageFor(model => model.vEmailID, "", new { @class = "text-danger" })
+                                    </div>
+
+                                </div>
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.vMobile, new { @id = "txtLoyalty", @class = "form-control", @placeholder = "Enter Mobile No" })
+                                        @Html.ValidationMessageFor(model => model.vMobile, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="row align-items-center remember">
+                                    <input type="checkbox">Remember Me
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-3">
+                                        <button type="submit" class="btn float-right login_btn" style="width:auto;">Login</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-center links">
+                                Don't have an account?@Html.ActionLink("SignUp", "RegisteredUser", "Registration")
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </body>*@
 }
 </html>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#txtLoyalty").keydown(function (event) {
+                if (event.shiftKey) {
+                    event.preventDefault();
+                }
+                if (event.keyCode == 46 || event.keyCode == 8) {
+                }
+                else {
+                    if (event.keyCode < 95) {
+                        if (event.keyCode < 48 || event.keyCode > 57) {
+                            event.preventDefault();
+                        }
+                    }
+                    else {
+                        if (event.keyCode < 96 || event.keyCode > 105) {
+                            event.preventDefault();
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 }
 
 
 
-    @*<!DOCTYPE html>
+@*<!DOCTYPE html>
 
-        <html>
-        <head>
-            <meta name="viewport" content="width=device-width" />
-            <title>UnRegisteredUserLogin</title>
-        </head>
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>UnRegisteredUserLogin</title>
+    </head>
 
-        @using (Html.BeginForm())
-        {
-            <body>
-                <div class="container">
-                    <div class="form-horizontal">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="form-group" align="center" id="bg">
+    @using (Html.BeginForm())
+    {
+        <body>
+            <div class="container">
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group" align="center" id="bg">
 
-                                    @Html.LabelFor(model => model.vEmailID, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.EditorFor(model => model.vEmailID, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.vEmailID, "", new { @class = "text-danger" })
-                                    </div>
+                                @Html.LabelFor(model => model.vEmailID, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.vEmailID, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.vEmailID, "", new { @class = "text-danger" })
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="form-group" align="center">
-                                    @Html.LabelFor(model => model.vMobile, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.EditorFor(model => model.vMobile, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.vMobile, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-
-                            </div>
-                            <div class="col-6">
-                                <label>
-                                    <input type="checkbox" checked="checked" name="remember" align="center"> Remember me
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-6">
-
-                            </div>
-                            <div class="col-3">
-                                <input type="submit" class="btn btn-primary" value="Login" />
-                            </div>
-                            <div class="col-3">
-                                <button class="btn btn-primary" style="width:auto;">Register</button>
                             </div>
                         </div>
                     </div>
-                </div>
-            </body>
-        }
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group" align="center">
+                                @Html.LabelFor(model => model.vMobile, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.vMobile, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.vMobile, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
 
-        </html>*@
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+
+                        </div>
+                        <div class="col-6">
+                            <label>
+                                <input type="checkbox" checked="checked" name="remember" align="center"> Remember me
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+
+                        </div>
+                        <div class="col-3">
+                            <input type="submit" class="btn btn-primary" value="Login" />
+                        </div>
+                        <div class="col-3">
+                            <button class="btn btn-primary" style="width:auto;">Register</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </body>
+    }
+
+    </html>*@

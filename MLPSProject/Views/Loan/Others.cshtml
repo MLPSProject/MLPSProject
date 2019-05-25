@@ -13,7 +13,7 @@
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
+<div class="form-horizontal" align="center">
     <h4>LoanDetail</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -86,9 +86,9 @@
                 @Html.ValidationMessageFor(model => model.IdProof, "", new { @class = "text-danger" })
                 
             </div>
-            <div class="col-md-7">
+            @*<div class="col-md-7">
                 <input type="button" onclick="@("window.location.href='" + @Url.Action("UploadIDProof", "Loan") + "'");" name="ImageFile"  class="btn btn-sm" value="Upload" />
-            </div>
+            </div>*@
     </div>
 
     <div class="form-group">
@@ -98,12 +98,12 @@
             @Html.EditorFor(model => model.AddressProof, new { htmlAttributes = new { @class = "form-control", type = "file" } })
             @Html.ValidationMessageFor(model => model.AddressProof, "", new { @class = "text-danger" })
         </div>
-        <div class="col-md-7">
+        @*<div class="col-md-7">
             <input type="button" onclick="@("window.location.href='" + @Url.Action("UploadIDProof1", "Loan") +"'");" class="btn btn-sm" value="Upload" />
-        </div>
+        </div>*@
     </div>
 
-    <div class="row">
+    
         <div class="form-group">
             @Html.LabelFor(model => model.PropertyAgreement, htmlAttributes: new { @class = "control-label col-md-2" })
             
@@ -112,12 +112,12 @@
                     @Html.EditorFor(model => model.PropertyAgreement, new { htmlAttributes = new { @class = "form-control", type = "file" } })
                     @Html.ValidationMessageFor(model => model.PropertyAgreement, "", new { @class = "text-danger" })
                 </div>
-                <div class="col-md-7">
+                @*<div class="col-md-7">
                     <input type="button" onclick="@("window.location.href='" + @Url.Action("UploadIDProof2", "Loan") + "'");" class="btn btn-sm" value="Upload" />
-                </div>
+                </div>*@
             
         </div>
-    </div>
+   
 
 
     <div class="form-group">
