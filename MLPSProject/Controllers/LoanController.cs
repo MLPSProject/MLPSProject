@@ -2,6 +2,7 @@
 using MLPSProject.ViewModel;
 using System;
 using System.IO;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
@@ -32,13 +33,17 @@ namespace MLPSProject.Controllers
         {
             LoanDetail loanDetail = new LoanDetail();
             loanDetail.PropertyDetailId = id;
+            var regid = Session["regId"];
+            loanDetail.RegisteredUserId = Convert.ToInt32(regid);
             return View(loanDetail);
         }
 
         [HttpPost]
-        public ActionResult Self(LoanDetail loanDetail,PropertyDetail propertyDetail)
+        public ActionResult Self(LoanDetail loanDetail, PropertyDetail propertyDetail)
         {
             dbContext.LoanDetails.Add(loanDetail);
+            var regid = Session["regId"];
+            
             //dbContext.PropertyDetails.Add(propertyDetail);
             dbContext.SaveChanges();
             return RedirectToAction("Index", "Loan");
@@ -55,14 +60,14 @@ namespace MLPSProject.Controllers
         }
 
         [HttpPost]
-        public ActionResult Others(PropertyDetail propertyDetail)
+        public ActionResult Others(PropertyDetail propertyDetail, RegisteredUser registeredUser)
         {
-            
-            
-                dbContext.PropertyDetails.Add(propertyDetail);
-                dbContext.SaveChanges();
-                return RedirectToAction("Self", "Loan",new { id = propertyDetail.Id});
-            
+            var userName = dbContext.RegisteredUsers.SingleOrDefault(c => c.vEmailID == registeredUser.vEmailID && c.vPassword == registeredUser.vPassword);
+
+            dbContext.PropertyDetails.Add(propertyDetail);
+            dbContext.SaveChanges();
+            return RedirectToAction("Self", "Loan", new { id = propertyDetail.Id });
+
             //LoanPropertyViewModel viewModel = new LoanPropertyViewModel();
             //LoanDetail detail = new LoanDetail();
             //PropertyDetail propertyDetail1 = new PropertyDetail();
@@ -80,7 +85,7 @@ namespace MLPSProject.Controllers
             fileName = Path.Combine(targetPath, fileName);
             LoanController.upload1 = fileName;
             ImageFile.SaveAs(fileName);
-           
+
         }
 
         public void UploadIDProof1(HttpPostedFileBase ImageFile)

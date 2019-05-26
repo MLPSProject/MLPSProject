@@ -20,10 +20,11 @@ namespace MLPSProject.Controllers
             dbContext.Dispose();
         }
         // GET: Inspector
-        public ActionResult Index()
+        public ActionResult Index(LoanDetail loanDetail)
         {
-            var list = dbContext.LoanDetails.Include(c => c.PropertyDetail).ToList();
-            return View(list);
+            var l = dbContext.LoanDetails.Include(c => c.PropertyDetail).SingleOrDefault(m => m.Id == loanDetail.Id);
+            //var list = dbContext.LoanDetails.SingleOrDefault(c => c.Id==loanDetail.Id);
+            return View(l);
         }
     }
 }

@@ -437,6 +437,7 @@
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Officer\Pending.cshtml" />
     <Content Include="Views\Home\Enquiry.cshtml" />
+    <Content Include="Views\Officer\Process.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

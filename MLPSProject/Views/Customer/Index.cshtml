@@ -1,4 +1,4 @@
-﻿
+﻿@model MLPSProject.Models.LoanDetail
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_CustomerHomePageLayout.cshtml";
@@ -34,7 +34,7 @@
             </ul>
         </div>
     </div>*@
-
+    @Html.HiddenFor(c=> c.RegisteredUserId)
 
     @{
         if (Session["User"] != null)

@@ -8,13 +8,23 @@
     <style>
         body {
             background-image: url('../../Images/45.jpg');
-            background-size:cover;
-            background-repeat:no-repeat;
-            height:100%;
-
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
         }
-        .footer {
-            padding: 4px;
+
+        footer {
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 10%;
+            background-color: #16191e;
+            color: white;
+            padding: 7px;
+            position: fixed;
+        }
+        #dd {
+            margin-right: 155.5px !important;
         }
     </style>
 </head>
@@ -22,28 +32,28 @@
 
 @using (Html.BeginForm())
 {
-<body>
-    <center><h2> Property Holder</h2></center>
-    <br />
-    <br />
-    <div class="row">
-        <div class="col-md-2"></div>
-        @*<div class="col-md-6">
-                <div class="form-group" style="width:300px;text-align:center;background-color:ActiveBorder">
-                    @Html.ActionLink("Apply Now", "Self", "Loan", null, new { @class = "form-control" })
-                </div>
-            </div>*@
+    <body>
+        <center><h2> Property Holder</h2></center>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-md-2"></div>
+            @*<div class="col-md-6">
+                    <div class="form-group" style="width:300px;text-align:center;background-color:ActiveBorder">
+                        @Html.ActionLink("Apply Now", "Self", "Loan", null, new { @class = "form-control" })
+                    </div>
+                </div>*@
 
-        <div class="col-md-8" align="center">
-            <div class="form-group" style="width:300px;text-align:center">
-                @Html.ActionLink("Apply Now", "Others", "Loan", null, new { @class = "form-control" })
+            <div class="col-md-8" align="center">
+                <div class="form-group" style="width:300px;text-align:center">
+                    @Html.ActionLink("Apply Now", "Others", "Loan", null, new { @class = "form-control" })
+                </div>
             </div>
         </div>
-    </div>
-    <div>
+        <div>
 
-    </div>
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        </div>
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-</body>
+    </body>
 }

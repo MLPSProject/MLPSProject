@@ -16,11 +16,7 @@
             height: 100%;
         }
 
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
+        
 
         li a {
             color: white;
@@ -29,14 +25,14 @@
         }
 
 
-        .footer {
+        footer {
             left: 0;
             bottom: 0;
             width: 100%;
-            height: 10%;
+            /*position:fixed;*/
             background-color: #16191e;
             color: white;
-            padding: 10px;
+            padding: 7px;
         }
 
         .fa {
@@ -74,11 +70,11 @@
             </li>
 
             <li class="nav-item">
-                @Html.ActionLink("UnRegistered Apply", "UnRegisteredUser", "Registration")
+                @Html.ActionLink("Apply", "UnRegisteredUser", "Registration")
             </li>
 
             <li class="nav-item">
-                @Html.ActionLink("UnRegistered Login", "UnRegisteredUserLogin", "Home")
+                @Html.ActionLink("Login", "UnRegisteredUserLogin", "Home")
             </li>
         </ul>
     </nav>
@@ -91,12 +87,11 @@
 
 
         <!--Footer-->
-        <footer class="footer ">
+        <footer >
 
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        @* <a href="#">&nbsp;Mortgage FAQ</a>*@
                         <p style="padding-left:5px;">Contact: +1 717-757-1528</p>
                         <p>&nbsp;Santander Bank of Mortgage Loan Website&nbsp;&nbsp;&copy; @DateTime.Now.Year - Santander</p>
 
@@ -147,81 +142,3 @@
 
 
 
-@*<!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>@ViewBag.Title - © 2019 -Santander Bank</title>
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-        <link href="~/Content/bootstrap.css" rel="stylesheet" />
-        <style>
-            html, body {
-                margin: 0;
-                padding: 0;
-                height: 100%;
-            }
-            li a {
-                color: white;
-                padding: 0px;
-                margin-right: 40px;
-            }
-        </style>
-
-
-    </head>
-
-    <body>
-
-        <div class="container-fluid " style="background-color:white;">
-            <div class="row navbar-static-top">
-                <div class="col-md-12">
-                    <img src="~/Images/santanderJusticia.jpg" width="200" height="100" />
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-        <nav class="navbar navbar-expand-lg py-md-0 top-left" style="background-color:#ec0000;align-content:center;">
-            <ul class="nav navbar-nav">
-
-                <li class="nav-item" style="margin-left:10px;">
-                    @Html.ActionLink("Enquiry", "Index", "Home")
-                </li>
-
-                <li class="nav-item">
-                    @Html.ActionLink("UnRegistered Apply", "UnRegisteredUser", "Registration")
-                </li>
-
-                <li class="nav-item">
-                    @Html.ActionLink("UnRegistered Login", "Contact", "Home")
-                </li>
-            </ul>
-        </nav>
-
-        <div class="container body-content">
-            @RenderBody()
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <hr />
-
-
-
-            <footer align="middle   ">
-                <p>&copy; @DateTime.Now.Year -Santander Bank</p>
-            </footer>
-        </div>
-
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
-    </body>
-    </html>*@

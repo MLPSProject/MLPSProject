@@ -1,0 +1,855 @@
+﻿
+@{
+    ViewBag.Title = "EMICalculator";
+    Layout = "~/Views/Shared/_CustomerHomePageLayout.cshtml";
+}
+
+<h2>EMICalculator</h2>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+
+    img.wp-smiley,
+    img.emoji {
+        display: inline !important;
+        border: none !important;
+        box-shadow: none !important;
+        height: 1em !important;
+        width: 1em !important;
+        margin: 0 .07em !important;
+        vertical-align: -0.1em !important;
+        background: none !important;
+        padding: 0 !important;
+    }
+</style>
+
+<link rel="stylesheet" id="contact-form-7-css" href="https://www.gosecurefinancial.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.0.4" type="text/css" media="all">
+<link rel="stylesheet" id="borrow-fonts-css" href="https://fonts.googleapis.com/css?family=Poppins%3A300%2C400%2C500%2C600%2C700%7CMerriweather%3A300%2C300i%2C400%2C400i%2C700%2C700i&amp;subset=latin%2Clatin-ext" type="text/css" media="all">
+<link rel="stylesheet" id="borrow-bootstrap-css" href="https://www.gosecurefinancial.com/wp-content/themes/gsfin/css/bootstrap.min.css?ver=4.9.10" type="text/css" media="all">
+<link rel="stylesheet" id="borrow-font-awesome-css" href="https://www.gosecurefinancial.com/wp-content/themes/gsfin/css/font-awesome.min.css?ver=4.9.10" type="text/css" media="all">
+<link rel="stylesheet" id="borrow-fontello-css" href="https://www.gosecurefinancial.com/wp-content/themes/gsfin/css/fontello/fontello.css?ver=4.9.10" type="text/css" media="all">
+<link rel="stylesheet" id="borrow-flaticon-css" href="https://www.gosecurefinancial.com/wp-content/themes/gsfin/css/flaticon.css?ver=4.9.10" type="text/css" media="all">
+<link rel="stylesheet" id="borrow-animsition-css" href="https://www.gosecurefinancial.com/wp-content/themes/gsfin/css/animsition.min.css?ver=4.9.10" type="text/css" media="all">
+<link rel="stylesheet" id="borrow-owl-carousel-css" href="https://www.gosecurefinancial.com/wp-content/themes/gsfin/css/owl.carousel.css?ver=4.9.10" type="text/css" media="all">
+<link rel="stylesheet" id="borrow-owl-theme-css" href="https://www.gosecurefinancial.com/wp-content/themes/gsfin/css/owl.theme.css?ver=4.9.10" type="text/css" media="all">
+<link rel="stylesheet" id="borrow-owl-transitions-css" href="https://www.gosecurefinancial.com/wp-content/themes/gsfin/css/owl.transitions.css?ver=4.9.10" type="text/css" media="all">
+<link rel="stylesheet" id="borrow-popup-css" href="https://www.gosecurefinancial.com/wp-content/themes/gsfin/css/magnific-popup.css?ver=4.9.10" type="text/css" media="all">
+<link rel="stylesheet" id="borrow-simple-slider-css" href="https://www.gosecurefinancial.com/wp-content/themes/gsfin/css/simple-slider.css?ver=4.9.10" type="text/css" media="all">
+<link rel="stylesheet" id="borrow-jquery-ui-css" href="https://www.gosecurefinancial.com/wp-content/themes/gsfin/css/jquery-ui.css?ver=4.9.10" type="text/css" media="all">
+<link rel="stylesheet" id="borrow-style-css" href="https://www.gosecurefinancial.com/wp-content/themes/gsfin-child/style.css?ver=4.9.10" type="text/css" media="all">
+<link rel="stylesheet" id="newsletter-css" href="https://www.gosecurefinancial.com/wp-content/plugins/newsletter/style.css?ver=5.6.7" type="text/css" media="all">
+<link rel="stylesheet" id="js_composer_front-css" href="https://www.gosecurefinancial.com/wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=5.4.5" type="text/css" media="all">
+<link rel="stylesheet" id="shmac-dynamic-css-css" href="https://www.gosecurefinancial.com/wp-admin/admin-ajax.php?action=shmac_dynamic_css&amp;ver=1.2" type="text/css" media="all">
+<script type="text/javascript" src="https://www.gosecurefinancial.com/wp-includes/js/jquery/jquery.js?ver=1.12.4"></script>
+<script type="text/javascript" src="https://www.gosecurefinancial.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1"></script>
+<script type="text/javascript" src="https://www.gosecurefinancial.com/wp-content/themes/gsfin/js/royal_preloader.min.js?ver=4.9.10"></script>
+<link rel="https://api.w.org/" href="https://www.gosecurefinancial.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.gosecurefinancial.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.gosecurefinancial.com/wp-includes/wlwmanifest.xml">
+<link rel="prev" title="Personal Loan" href="https://www.gosecurefinancial.com/loan/personal-loan/">
+
+<link rel="next" title="Loan Against Property" href="https://www.gosecurefinancial.com/loan/loan-against-property/">
+
+<meta name="generator" content="WordPress 4.9.10">
+
+<link rel="canonical" href="https://www.gosecurefinancial.com/loan/mortgage-loan/">
+
+<link rel="shortlink" href="https://www.gosecurefinancial.com/?p=1182">
+
+<link rel="alternate" type="application/json+oembed" href="https://www.gosecurefinancial.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.gosecurefinancial.com%2Floan%2Fmortgage-loan%2F">
+
+<link rel="alternate" type="text/xml+oembed" href="https://www.gosecurefinancial.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.gosecurefinancial.com%2Floan%2Fmortgage-loan%2F&amp;format=xml">
+
+
+
+<style type="text/css">
+
+    /* 01 MAIN STYLES
+
+    ****************************************************************************************************/
+
+    ::selection {
+        color: #fff;
+        background: #04508c;
+    }
+
+
+
+    ::-moz-selection {
+        color: #fff;
+        background: #04508c;
+    }
+
+    /* default color: #00cb8b */
+
+
+
+    /* Preload Colors */
+
+    .royal_preloader, html {
+        background-color: #ffffff;
+    }
+
+
+
+    #royal_preloader.royal_preloader_progress .royal_preloader_meter {
+        background-color: #04508c;
+    }
+
+
+
+    #royal_preloader.royal_preloader_progress .royal_preloader_percentage {
+        color: #111111;
+    }
+
+
+
+    a,
+    #navigation > ul > li:hover > a, #navigation ul ul li:hover > a, #navigation ul ul li a:hover,
+    .btn-link:hover, .meta-date, .icon-default, .text-big, .widget-footer ul li a:hover, .highlight,
+    .sub-nav > .nav li a:hover, .rate-number, .designation, .widget_categories li a:hover, .widget_archive li a:hover,
+    .name, .prev-link:hover, .next-link:hover, .testimonial-title, .msg,
+    div.vc_tta-color-white.vc_tta-style-classic .vc_tta-tab.vc_active > a,
+    div.vc_tta-color-white.vc_tta-style-classic .vc_tta-tab > a:hover, .page-breadcrumb .breadcrumb a span:hover,
+    .widget-social ul li a:hover, #navigation li.current-menu-parent > a, #navigation li.current-menu-item > a,
+    #navigation.small-screen #menu-button, #sub-nav.small-screen #menu-button {
+        color: #04508c;
+    }
+
+
+
+        a.expand:hover {
+            color: #fff;
+        }
+
+
+
+        .btn-default, .cd-top, #service .owl-next:hover, #service .owl-prev:hover, #to-the-top,
+        .slide-ranger .ui-widget-header, .widget_tag_cloud a:hover, .st-pagination .pagination > li:first-child > span,
+        .st-pagination .pagination > li > a:focus, .st-pagination .pagination > li > a:hover, .st-pagination .pagination > li > span:focus,
+        .st-pagination .pagination > li > span:hover, .slider > .dragger, #navigation.small-screen #menu-button:before,
+        #sub-nav.small-screen #menu-button:before {
+            background-color: #04508c;
+        }
+
+
+
+        #service .owl-next:hover, #service .owl-prev:hover,
+        div.vc_tta.vc_tta-accordion .vc_tta-panel.vc_active .vc_tta-controls-icon-position-left .vc_tta-controls-icon:before,
+        .slide-ranger .ui-slider .ui-slider-handle, .slide-ranger .ui-widget.ui-widget-content, .widget_tag_cloud a:hover,
+        .st-pagination .pagination > li:first-child > span, .st-pagination .pagination > li > a:focus, .st-pagination .pagination > li > a:hover,
+        .st-pagination .pagination > li > span:focus, .st-pagination .pagination > li > span:hover, .slider > .dragger,
+        #navigation.small-screen #menu-button:after, #sub-nav.small-screen #menu-button:after {
+            border-color: #04508c;
+        }
+
+
+
+    .mfp-arrow-right:after, .mfp-arrow-right .mfp-a {
+        border-left-color: #04508c;
+    }
+
+
+
+    .btn-link:hover {
+        border-bottom-color: #04508c;
+    }
+
+
+
+    .slider > .dragger {
+        background-image: -webkit-linear-gradient(top, #04508c, #04508c);
+    }
+
+
+
+    .btn-default:hover {
+        background-color: #1b75bc;
+    }
+
+
+
+    .btn-default:hover {
+        border-color: #1b75bc;
+    }
+
+    /* main color 2: #15549a */
+
+    a:focus, a:hover,
+    .btn-link, .circle, .icon-primary, .testimonial-name-1, .big-title,
+    .post-block .meta-comments a:hover, .post-related-content a:hover,
+    .feature-left .feature-icon, .testimonial-name-inverse,
+    div.vc_tta-color-white.vc_tta-style-classic .vc_tta-panel .vc_tta-panel-title > a:hover,
+    .page-breadcrumb .breadcrumb a span, .page-breadcrumb .breadcrumb, .meta-author a:hover {
+        color: #15549a;
+    }
+
+
+
+    .bg-custom, .top-bar, .btn-primary {
+        background-color: #15549a;
+    }
+
+
+
+    .circle {
+        border-color: #15549a;
+    }
+
+
+
+    .btn-primary, .btn-link {
+        border-bottom-color: #15549a;
+    }
+
+
+
+    .mail-text {
+        border-right-color: #15549a;
+    }
+
+
+
+    .btn-primary:hover {
+        background-color: #2573cb;
+    }
+
+
+
+    .btn-primary:hover {
+        border-color: #2573cb;
+    }
+
+    /* background color top header */
+
+
+
+    div.top-bar {
+        background-color: #04508c;
+    }
+
+
+
+
+
+    /* color text top header */
+
+
+
+    .top-text a, .top-bar {
+        color: #f1f1f1;
+    }
+
+
+
+    /* bg color header static */
+
+
+
+    .header, .header-2 {
+        background-color: rgba(255,255,255,1);
+    }
+
+
+
+    /* text color header static */
+
+
+
+    #navigation > ul > li > a {
+        color: rgba(102,112,127,1);
+    }
+
+
+
+
+
+    /* bg color header sticky */
+
+
+
+    .is-sticky .header, .is-sticky .header-2 {
+        background-color: rgba(255,255,255,1);
+    }
+
+
+
+    /* text color header sticky */
+
+
+
+    .is-sticky #navigation > ul > li > a {
+        color: rgba(102,112,127,1);
+    }
+
+
+
+    /** Customize css code **/
+
+</style>
+
+<meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress.">
+
+
+<style type="text/css" data-type="vc_shortcodes-custom-css">
+
+    .vc_custom_1482199625086 {
+        margin-top: -40px !important;
+    }
+
+
+
+    .vc_custom_1521363550273 {
+        margin-bottom: 50px !important;
+    }
+
+
+
+    .vc_custom_1522060781005 {
+        padding-top: 60px !important;
+        padding-right: 60px !important;
+        padding-bottom: 30px !important;
+        padding-left: 60px !important;
+    }
+
+
+
+    .vc_custom_1522060751012 {
+        margin-bottom: 20px !important;
+    }
+
+
+
+    .vc_custom_1522061459124 {
+        padding-top: 60px !important;
+        padding-right: 60px !important;
+        padding-bottom: 30px !important;
+        padding-left: 60px !important;
+    }
+
+
+
+    .vc_custom_1522060954778 {
+        margin-bottom: 0px !important;
+    }
+
+
+
+    .vc_custom_1521607504497 {
+        padding-top: 30px !important;
+        padding-right: 60px !important;
+        padding-bottom: 30px !important;
+        padding-left: 60px !important;
+    }
+
+
+
+    .vc_custom_1521363337269 {
+        padding-top: 40px !important;
+        padding-right: 40px !important;
+        padding-bottom: 30px !important;
+        padding-left: 40px !important;
+    }
+
+
+
+    .vc_custom_1521367264585 {
+        padding-top: 60px !important;
+        padding-right: 60px !important;
+        padding-bottom: 30px !important;
+        padding-left: 60px !important;
+    }
+
+
+
+    .vc_custom_1521367403632 {
+        padding-right: 60px !important;
+        padding-bottom: 30px !important;
+        padding-left: 60px !important;
+    }
+
+
+
+    .vc_custom_1521363850592 {
+        padding-bottom: 30px !important;
+    }
+
+
+
+    .vc_custom_1522061088317 {
+        margin-bottom: 0px !important;
+    }
+
+
+
+    .vc_custom_1521363850592 {
+        padding-bottom: 30px !important;
+    }
+
+
+
+    .vc_custom_1482202259475 {
+        margin-bottom: 30px !important;
+    }
+
+
+
+    .vc_custom_1482202263177 {
+        margin-bottom: 30px !important;
+    }
+
+
+
+    .vc_custom_1521365979285 {
+        margin-bottom: 0px !important;
+    }
+
+
+
+    .vc_custom_1521604099715 {
+        padding-top: 30px !important;
+        padding-right: 60px !important;
+        padding-left: 60px !important;
+    }
+
+
+
+    .vc_custom_1521363622572 {
+        padding-top: 0px !important;
+        padding-right: 60px !important;
+        padding-bottom: 30px !important;
+        padding-left: 60px !important;
+    }
+
+
+
+    .vc_custom_1521366214249 {
+        margin-bottom: 0px !important;
+    }
+
+
+
+    .vc_custom_1521364935124 {
+        margin-bottom: 0px !important;
+    }
+
+
+
+    .vc_custom_1521364959146 {
+        margin-bottom: 0px !important;
+    }
+
+
+
+    .vc_custom_1521363581620 {
+        padding-top: 30px !important;
+        padding-right: 60px !important;
+        padding-bottom: 30px !important;
+        padding-left: 60px !important;
+    }
+</style>
+
+<noscript>
+
+    <style type="text/css">
+
+        .wpb_animate_when_almost_visible {
+            opacity: 1;
+        }
+    </style>
+</noscript>
+
+<script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/37/1/common.js"></script>
+
+<script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/37/1/util.js"></script>
+
+
+
+
+
+
+<div class="wpb_column vc_column_container vc_col-sm-12">
+
+    <div class="vc_column-inner ">
+
+        <div class="wpb_wrapper " style="background-color: #15549a ">
+
+            <div id="section-emi-calculator" class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1521363337269">
+
+                <div class="text-center wpb_column vc_column_container vc_col-sm-12">
+
+                    <div class="vc_column-inner ">
+
+                        <div class="wpb_wrapper">
+
+                            <h2 class="" style="text-align: center;color: #ffffff;"> Loan EMI Calculator</h2>
+
+                            <div class="row">
+
+                                <div class="col-md-6">
+
+                                    <div class="bg-light pinside40 outline">
+
+                                        <span>Loan Amount is </span>
+
+                                        <strong><span class="pull-right" id="la_value">150000</span></strong>
+
+                                        <div class="slider" id="la-slider" style="position: relative; user-select: none; box-sizing: border-box; min-height: 16px;"><div class="track" style="position: absolute; top: 50%; user-select: none; cursor: pointer; width: 100%; margin-top: -4px;"></div><div class="dragger" style="position: absolute; top: 50%; user-select: none; cursor: pointer; margin-top: -8px; margin-left: -8px; left: 4.62245px;"></div></div><input type="text" data-slider="true" value="30000" data-slider-range="100000,5000000" data-slider-step="10000" data-slider-snap="true" id="la" style="display: none;">
+
+                                        <hr>
+
+                                        <span>
+
+                                            No. of Month is <strong><span class="pull-right" id="nm_value">120</span> </strong>
+
+                                        </span>
+
+                                        <div class="slider" id="nm-slider" style="position: relative; user-select: none; box-sizing: border-box; min-height: 16px;"><div class="track" style="position: absolute; top: 50%; user-select: none; cursor: pointer; width: 100%; margin-top: -4px;"></div><div class="dragger" style="position: absolute; top: 50%; user-select: none; cursor: pointer; margin-top: -8px; margin-left: -8px; left: 0px;"></div></div><input type="text" data-slider="true" value="30" data-slider-range="120,360" data-slider-step="1" data-slider-snap="true" id="nm" style="display: none;">
+
+                                        <hr>
+
+                                        <span>
+
+                                            Rate of Interest `{`ROI`}` is <strong>
+
+                                                <span class="pull-right" id="roi_value">8.00</span>
+
+                                            </strong>
+
+                                        </span>
+
+                                        <div class="slider" id="roi-slider" style="position: relative; user-select: none; box-sizing: border-box; min-height: 16px;">
+                                            <div class="track" style="position: absolute; top: 50%; user-select: none; cursor: pointer; width: 100%; margin-top: -4px;"></div>
+
+                                            <div class="dragger" style="position: absolute; top: 50%; user-select: none; cursor: pointer; margin-top: -8px; margin-left: -8px; left: 0px;"></div>
+                                        </div><input type="text" data-slider="true" value="10" data-slider-range="8,16" data-slider-step=".05" data-slider-snap="true" id="roi" style="display: none;">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6">
+
+                                    <div class="row">
+
+                                        <div class="col-md-12 ">
+
+                                            <div class="bg-light pinside30 outline">
+
+                                                Monthly EMI <h2 id="emi" class="pull-right">1,819.91</h2>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-12">
+
+                                            <div class="bg-light pinside30 outline">
+
+                                                Total Interest <h2 id="tbl_int" class="pull-right">68,389.67</h2>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-12">
+
+                                            <div class="bg-light pinside30 outline"> Payable Amount <h2 id="tbl_full" class="pull-right">218,389.67</h2></div>
+
+                                        </div>
+
+                                        <div class="col-md-12">
+
+                                            <div class="bg-light pinside30 outline">
+
+                                                Interest Percentage <h2 id="tbl_int_pge" class="pull-right">31.32 %</h2>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-12">
+
+                                </div>
+
+                            </div>
+
+                            <script type="text/javascript">
+
+  (function($) {
+
+    $(document).ready(function(){
+
+      $("#la").bind(
+
+        "slider:changed", function (event, data) {
+
+          $("#la_value").html(data.value.toFixed(0));
+
+          calculateEMI();
+
+        }
+
+      );
+
+
+
+      $("#nm").bind(
+
+        "slider:changed", function (event, data) {
+
+          $("#nm_value").html(data.value.toFixed(0));
+
+          calculateEMI();
+
+        }
+
+      );
+
+
+
+      $("#roi").bind(
+
+        "slider:changed", function (event, data) {
+
+          $("#roi_value").html(data.value.toFixed(2));
+
+          calculateEMI();
+
+        }
+
+      );
+
+
+
+      function calculateEMI(){
+
+        var loanAmount = $("#la_value").html();
+
+        var numberOfMonths = $("#nm_value").html();
+
+        var rateOfInterest = $("#roi_value").html();
+
+        var monthlyInterestRatio = (rateOfInterest/100)/12;
+
+
+
+        var top = Math.pow((1+monthlyInterestRatio),numberOfMonths);
+
+        var bottom = top -1;
+
+        var sp = top / bottom;
+
+        var emi = ((loanAmount * monthlyInterestRatio) * sp);
+
+        var full = numberOfMonths * emi;
+
+        var interest = full - loanAmount;
+
+        var int_pge = (interest / full) * 100;
+
+        $("#tbl_int_pge").html(int_pge.toFixed(2)+" %");
+
+        //$("#tbl_loan_pge").html((100-int_pge.toFixed(2))+" %");
+
+
+
+        var emi_str = emi.toFixed(2).toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        var loanAmount_str = loanAmount.toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        var full_str = full.toFixed(2).toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        var int_str = interest.toFixed(2).toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+
+
+        $("#emi").html(emi_str);
+
+        $("#tbl_emi").html(emi_str);
+
+        $("#tbl_la").html(loanAmount_str);
+
+        $("#tbl_nm").html(numberOfMonths);
+
+        $("#tbl_roi").html(rateOfInterest);
+
+        $("#tbl_full").html(full_str);
+
+        $("#tbl_int").html(int_str);
+
+      }
+
+      calculateEMI();
+
+    });
+
+ })(jQuery);
+
+                            </script>
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div><div class="wpb_column vc_column_container vc_col-sm-12">
+
+    <div class="vc_column-inner ">
+
+        <div class="wpb_wrapper " style="background-color: #fafcfd ">
+
+            <div id="section-partners" class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1521367264585">
+
+                <div class="wpb_column vc_column_container vc_col-sm-12">
+
+                    <div class="vc_column-inner vc_custom_1521363850592">
+
+                        <div class="wpb_wrapper">
+
+
+
+                        </div>
+
+                    </div>
+
+                </div><div class="wpb_column vc_column_container vc_col-sm-6">
+
+                    <div class="vc_column-inner ">
+
+                        <div class="wpb_wrapper">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+  (function($) {"use strict";
+
+    $(document).on('ready', function() {
+
+     $("#slider-range-min").slider({
+
+       range: "min",
+
+       value: 3000,
+
+       min: 1000,
+
+       max: 5000,
+
+       slide: function(event, ui) {
+
+         $("#amount").val("$" + ui.value);
+
+       }
+
+     });
+
+     $("#amount").val("$" + $("#slider-range-min").slider("value"));
+
+     $("#slider-range-max").slider({
+
+       range: "max",
+
+       min: 1,
+
+       max: 10,
+
+       value: 2,
+
+       slide: function(event, ui) {
+
+         $("#j").val(ui.value);
+
+       }
+
+     });
+
+     $("#j").val($("#slider-range-max").slider("value"));
+
+    });
+
+         Royal_Preloader.config({
+
+              mode : 'progress',
+
+        showProgress : true,
+
+        showPercentage : false,
+
+            text_colour: '#111111',
+
+      background: '#ffffff'
+
+     });
+
+
+
+      })(jQuery);
+
+</script>
+
+
+
+
+
+
+
+<script type="text/javascript" src="https://www.gosecurefinancial.com/wp-content/themes/gsfin/js/jquery.easing.min.js?ver=20151228"></script>
+
+<script type="text/javascript" src="https://www.gosecurefinancial.com/wp-content/themes/gsfin/js/jquery.isotope.min.js?ver=20151228"></script>
+
+<script type="text/javascript" src="https://www.gosecurefinancial.com/wp-content/themes/gsfin/js/simple-slider.js?ver=20151228"></script>
+
+<script type="text/javascript" src="https://www.gosecurefinancial.com/wp-content/themes/gsfin/js/jquery-ui.js?ver=20151228"></script>
+
+<script type="text/javascript" src="https://www.gosecurefinancial.com/wp-content/themes/gsfin/js/custom.js?ver=20151228"></script>
+
+<script type="text/javascript"></script>
+
+
+
+@*</body>*@
+
+
+
+
+
+
+

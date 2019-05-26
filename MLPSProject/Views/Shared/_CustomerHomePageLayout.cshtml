@@ -29,14 +29,15 @@
         }
 
 
-        .footer {
+        footer {
             left: 0;
             bottom: 0;
             width: 100%;
-            height: 10%;
+            /*height: 10%;*/
             background-color: #16191e;
             color: white;
-            padding: 10px;
+            padding: 7px;
+            /*position:fixed;*/
         }
 
         .fa {
@@ -48,6 +49,7 @@
             margin: 5px 2px;
             border-radius: 50%;
         }
+
         #dd {
             margin-left: 10% !important;
             float: right;
@@ -59,11 +61,13 @@
             background-color: white;
             border-radius: 0px !important;
         }
+
         a:hover {
             background-color: white;
         }
-        #ddVal{
-            color:blue;
+
+        #ddVal {
+            color: blue;
         }
     </style>
 
@@ -72,13 +76,19 @@
 
 
 <body>
+    @{
+        if (Session["User"] == null)
+        {
+            Response.Redirect("~/Home/Index");
+        }
+    }
     <div class="container" id="dd">
         <div class="dropdown">
             <button id="btn" class="btn dropdown-toggle" type="button" data-toggle="dropdown">
                 @Session["User"]
                 <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu"  >
+            <ul class="dropdown-menu">
                 <li id="ddVal" style="background-color:blue;text-align:center">@Html.ActionLink("Logout", "LogOff", "Home")</li>
             </ul>
         </div>
@@ -110,9 +120,9 @@
                 @Html.ActionLink("EMI Calculator", "EMICalculator", "Customer")
             </li>
 
-            <li class="nav-item">
+            @*<li class="nav-item">
                 @Html.ActionLink("Status", "Contact", "Home")
-            </li>
+            </li>*@
         </ul>
     </nav>
 
@@ -124,7 +134,7 @@
 
 
         <!--Footer-->
-        <footer class="footer ">
+        <footer>
 
             <div class="container-fluid">
                 <div class="row">

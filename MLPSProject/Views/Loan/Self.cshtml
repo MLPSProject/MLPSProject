@@ -16,6 +16,13 @@
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
+        @Html.LabelFor(model => model.RegisteredUserId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.RegisteredUserId, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.RegisteredUserId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
         @Html.LabelFor(model => model.PropertyDetailId, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.TextBoxFor(model => model.PropertyDetailId, new { @class = "form-control" })

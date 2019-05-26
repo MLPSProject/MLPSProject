@@ -56,9 +56,10 @@ namespace MLPSProject.Controllers
         {
             var userName = dbContext.RegisteredUsers.SingleOrDefault(c => c.vEmailID == registeredUser.vEmailID && c.vPassword == registeredUser.vPassword);
             Session["User"] = registeredUser.vEmailID;
+            Session["regId"] = userName.Id;
             if (userName != null)
             {
-                return RedirectToAction("Index", "Customer");
+                return RedirectToAction("Index", "Customer",new { id = userName.Id});
             }
             else
             {
@@ -112,9 +113,9 @@ namespace MLPSProject.Controllers
         public ActionResult LogOff()
         {
             //AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            FormsAuthentication.SignOut();
-            Session.Clear();
+            //FormsAuthentication.SignOut();
             Session.Abandon();
+            Session.Clear();
             return RedirectToAction("Index", "Home");
         }
 

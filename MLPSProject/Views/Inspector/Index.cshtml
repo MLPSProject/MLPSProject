@@ -1,4 +1,4 @@
-﻿@model List<MLPSProject.Models.LoanDetail>
+﻿@model MLPSProject.Models.LoanDetail
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -30,7 +30,7 @@
 @using (Html.BeginForm())
 {
 <body>
-
+    @Html.HiddenFor(c => c.Id)
     <div class="container" id="dd">
         <div class="dropdown">
             <button id="btn" class="btn dropdown-toggle" type="button" data-toggle="dropdown">
@@ -67,20 +67,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model)
-                    {
+                    @*@foreach (var item in Model)
+                    {*@
                         <tr>
-                            <td>@item.vName</td>
-                            <td>@item.vEmail</td>
-                            <td>@item.vMobile</td>
-                            <td>@item.PropertyDetail.vPropertyType</td>
-                            <td>@item.PropertyDetail.PropertyAddress</td>
-                            <td>@item.PropertyDetail.IdProof</td>
-                            <td>@item.PropertyDetail.AddressProof</td>
-                            <td>@item.PropertyDetail.PropertyAgreement</td>
-                            <td>@Html.EditorFor(i =>item.PropertyDetail.vRemarks, new { htmlAttributes = new { @class = "form-control",@placeholder="Remarks" } })</td>
+                            <td>@Model.vName</td>
+                            <td>@Model.vEmail</td>
+                            <td>@Model.vMobile</td>
+                            <td>@Model.PropertyDetail.vPropertyType</td>
+                            <td>@Model.PropertyDetail.PropertyAddress</td>
+                            <td>@Model.PropertyDetail.IdProof</td>
+                            <td>@Model.PropertyDetail.AddressProof</td>
+                            <td>@Model.PropertyDetail.PropertyAgreement</td>
+                            <td>@Html.EditorFor(i => Model.PropertyDetail.vRemarks, new { htmlAttributes = new { @class = "form-control",@placeholder="Remarks" } })</td>
+                            <td>@Html.ActionLink("Submit report", "Process", "Officer", new { ID = Model.Id,regId = Model.RegisteredUserId,unRegId = Model.UnRegisteredUserId,propId = Model.PropertyDetailId }, null)</td>
                         </tr>
-                    }
+                    @*  *@}
                 </tbody>
             </table>
         }

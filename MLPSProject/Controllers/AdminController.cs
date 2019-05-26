@@ -35,7 +35,8 @@ namespace MLPSProject.Controllers
             {
                 if (employee.vDesignation == "Officer")
                 {
-                    return RedirectToAction("Index", "Officer");
+                    Session["Officer"] = employee.Id;
+                    return RedirectToAction("Index", "Officer",new { id = employee.Id});
                 }
                 else if (employee.vDesignation == "Inspector")
                 {
