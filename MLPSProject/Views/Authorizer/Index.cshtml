@@ -1,17 +1,17 @@
 ﻿@model List<MLPSProject.Models.LoanDetail>
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
 }
 
-<h2>Authorizer Index Home Page</h2>
+<h2>@*Authorizer Index Home Page*@</h2>
 
 <head>
     <style>
         #dd {
             margin-left: 10% !important;
             float: right;
-            margin-right: -18.5% !important;
+            margin-right: 10% !important;
             width: 120px !important;
             font-weight: 500 !important;
             left: 5px !important;
@@ -74,9 +74,9 @@
                             <th class="th-sm">Loan Amount</th>
                             <th class="th-sm">PropertyType</th>
                             <th class="th-sm">Property Address</th>
-                            <th class="th-sm">Id Proof</th>
+                            @*<th class="th-sm">Id Proof</th>
                             <th class="th-sm">Address Proof</th>
-                            <th class="th-sm">Property Documents</th>
+                            <th class="th-sm">Property Documents</th>*@
                         </tr>
                     </thead>
                     <tbody>
@@ -98,11 +98,11 @@
                                 <td>@item.dLoanAmount</td>
                                 <td>@item.PropertyDetail.vPropertyType</td>
                                 <td>@item.PropertyDetail.PropertyAddress</td>
-                                <td>@item.PropertyDetail.IdProof</td>
+                                @*<td>@item.PropertyDetail.IdProof</td>
                                 <td>@item.PropertyDetail.AddressProof</td>
-                                <td>@item.PropertyDetail.PropertyAgreement</td>
-                                <td>@Html.ActionLink("Approve", "", "")</td>
-                                <td>@Html.ActionLink("Reject", "", "")</td>
+                                <td>@item.PropertyDetail.PropertyAgreement</td>*@
+                                <td>@Html.ActionLink("Approve", "Index", "Admin")</td>
+                                @*<td>@Html.ActionLink("Reject", "Index", "Admin")</td>*@
                             </tr>
                         }
                     </tbody>

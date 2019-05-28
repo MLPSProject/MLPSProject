@@ -34,6 +34,7 @@ namespace MLPSProject.Models
 
         [Required]
         [Display(Name = "Age")]
+        [Range(5, 50)]
         public int iAge { get; set; }
         [Required]
         [Display(Name = "Occupation")]

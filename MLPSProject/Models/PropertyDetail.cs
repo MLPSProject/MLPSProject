@@ -25,13 +25,13 @@ namespace MLPSProject.Models
         public string vRemarks { get; set; }
         [Required]
         [Display(Name = "Id Proof")]
-        public string IdProof { get; set; }
+        public byte[] IdProof { get; set; }
         [Required]
         [Display(Name = "Address Proof")]
-        public string AddressProof { get; set; }
+        public byte[] AddressProof { get; set; }
         [Required]
         [Display(Name = "Property Documents")]
-        public string PropertyAgreement { get; set; }
+        public byte[] PropertyAgreement { get; set; }
 
 
         //References

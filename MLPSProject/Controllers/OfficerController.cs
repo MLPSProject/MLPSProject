@@ -56,20 +56,20 @@ namespace MLPSProject.Controllers
             var loanDetails = dbContext.LoanDetails.FirstOrDefault(x => x.Id == loanId);
             if (msg == "Accepted")
             {
+                //loanDetails.vStatus = "Verification";
                 loanDetails.vStatus = "Verification";
-                loanDetail.vStatus = msg;
-                dbContext.LoanDetails.Add(loanDetail);
+               // dbContext.LoanDetails.Add(loanDetail);
                 dbContext.SaveChanges();
-                return RedirectToAction("Process", "Officer");
+                return RedirectToAction("Index", "Admin");
             }
             else
             {
+                //loanDetails.vStatus = "Rejected";
                 loanDetails.vStatus = "Rejected";
-                loanDetail.vStatus = msg;
-                dbContext.LoanDetails.Add(loanDetail);
+              //  dbContext.LoanDetails.Add(loanDetail);
                 dbContext.SaveChanges();
                 ViewBag.ErrorMessage = "Loan Application is Rejected";
-                return RedirectToAction("Process", "Officer");
+                return RedirectToAction("Index", "Admin");
             }
         }
 

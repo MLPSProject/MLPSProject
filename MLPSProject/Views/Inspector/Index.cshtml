@@ -1,10 +1,10 @@
 ﻿@model MLPSProject.Models.LoanDetail
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
 }
 
-<h2>Inspector Index Home Page</h2>
+@*<h2>Inspector Index Home Page</h2>*@
 <head>
     <style>
         #dd {
@@ -60,9 +60,9 @@
                         <th class="th-sm">Mobile No.</th>
                         <th class="th-sm">PropertyType</th>
                         <th class="th-sm">Property Address</th>
-                        <th class="th-sm">Id Proof</th>
+                        @*<th class="th-sm">Id Proof</th>
                         <th class="th-sm">Address Proof</th>
-                        <th class="th-sm">Property Documents</th>
+                        <th class="th-sm">Property Documents</th>*@
                         <th class="th-sm">Remarks</th>
                     </tr>
                 </thead>
@@ -75,9 +75,9 @@
                             <td>@Model.vMobile</td>
                             <td>@Model.PropertyDetail.vPropertyType</td>
                             <td>@Model.PropertyDetail.PropertyAddress</td>
-                            <td>@Model.PropertyDetail.IdProof</td>
+                            @*<td>@Model.PropertyDetail.IdProof</td>
                             <td>@Model.PropertyDetail.AddressProof</td>
-                            <td>@Model.PropertyDetail.PropertyAgreement</td>
+                            <td>@Model.PropertyDetail.PropertyAgreement</td>*@
                             <td>@Html.EditorFor(i => Model.PropertyDetail.vRemarks, new { htmlAttributes = new { @class = "form-control",@placeholder="Remarks" } })</td>
                             <td>@Html.ActionLink("Submit report", "Process", "Officer", new { ID = Model.Id,regId = Model.RegisteredUserId,unRegId = Model.UnRegisteredUserId,propId = Model.PropertyDetailId }, null)</td>
                         </tr>
@@ -91,9 +91,9 @@
         }
     }
 
-    <div class="form-group" align="center">
+    @*<div class="form-group" align="center">
         <input type="button" class="btn btn-success" value="Submit Report" />
-    </div>
+    </div>*@
 
 </body>
 }

@@ -1,10 +1,10 @@
 ﻿@model MLPSProject.Models.LoanDetail
 @{
     ViewBag.Title = "Process";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
 }
 
-<h2>Process</h2>
+@*<h2>Process</h2>*@
 
 <head>
     <style>
@@ -61,9 +61,9 @@
                             <th class="th-sm">Mobile No.</th>
                             <th class="th-sm">PropertyType</th>
                             <th class="th-sm">Property Address</th>
-                            <th class="th-sm">Id Proof</th>
+                            @*<th class="th-sm">Id Proof</th>
                             <th class="th-sm">Address Proof</th>
-                            <th class="th-sm">Property Documents</th>
+                            <th class="th-sm">Property Documents</th>*@
                         </tr>
                     </thead>
                     <tbody>
@@ -75,9 +75,9 @@
                             <td>@Model.vMobile</td>
                             <td>@Model.PropertyDetail.vPropertyType</td>
                             <td>@Model.PropertyDetail.PropertyAddress</td>
-                            <td>@Model.PropertyDetail.IdProof</td>
+                            @*<td>@Model.PropertyDetail.IdProof</td>
                             <td>@Model.PropertyDetail.AddressProof</td>
-                            <td>@Model.PropertyDetail.PropertyAgreement</td>
+                            <td>@Model.PropertyDetail.PropertyAgreement</td>*@
                             <td>@Html.ActionLink("Accepted", "StatusApproval", "Officer", new { loanId = Model.Id, regId = Model.RegisteredUserId, msg = "Accepted" }, null)</td>
                             <td>@Html.ActionLink("Rejected", "StatusApproval", "Officer", new { loanId = Model.Id, regId = Model.RegisteredUserId, msg = "Rejected" }, null)</td>
                         </tr>

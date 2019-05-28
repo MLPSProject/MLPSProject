@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewBag.Title - © 2019 -Santander Bank</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        li a {
+            color: white;
+            padding: 0px;
+            margin-right: 40px;
+        }
+
+
+        .footer {
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            /*height: 5%;*/
+            background-color: #16191e;
+            color: white;
+            padding: 7px;
+            position:fixed;
+        }
+
+        #icons:hover {
+            opacity: 0.8;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <!--Header, Navbar-->
+    <div class="container-fluid " style="background-color:white;">
+        <div class="row navbar-static-top ">
+            <div class="col-md-12">
+                <img src="~/Images/santanderlogo.jpg" width="200" height="100" />
+
+            </div>
+
+            @*<div class="col-md-11"></div>#333, #ec0000,#af0b1c,#EF1515*@
+        </div>
+
+    </div>
+    <nav class="navbar navbar-expand-lg py-md-0 top-left" style="background-color:#04508c;align-content:center;">
+        @*<ul class="nav navbar-nav" style="padding:20px">
+
+            <li class="nav-item" style="margin-left:10px;">
+                @Html.ActionLink("Home", "Index", "Officer")
+            </li>
+
+            <li class="nav-item">
+                @Html.ActionLink("About", "About", "Home")
+            </li>
+
+            <li class="nav-item">
+                @Html.ActionLink("Contact", "Contact", "Home")
+            </li>
+        </ul>*@
+    </nav>
+
+    <div>
+        @RenderBody()
+        <br />
+        <br />
+
+        <!--Footer-->
+        <footer class="footer ">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        @* <a href="#">&nbsp;Mortgage FAQ</a>*@
+                        <p style="padding-left:5px;">Contact: +1 717-757-1528</p>
+                        <p>&nbsp;Santander Bank of Mortgage Loan Website&nbsp;&nbsp;&copy; @DateTime.Now.Year - Santander</p>
+
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+
+                    <div id="icons" class="col-md-5" style="padding-top:30px;">
+                        <div class="col-md-6 col-lg-7 text-center text-md-right">
+
+                            <a class="fb-ic" href="https://www.facebook.com/santanderuk/" style="color:#04508c;font-size:25px;">
+                                <i class="fab fa-facebook-f white-text mr-4"> </i>
+                            </a>
+                            <a class="tw-ic" href="https://twitter.com/santanderuk?lang=en" style="color:#04508c;font-size:25px;">
+                                <i class="fab fa-twitter white-text mr-4"> </i>
+                            </a>
+                            <a class="gplus-ic" style="color:#04508c;font-size:25px;">
+                                <i class="fab fa-google-plus-g white-text mr-4"> </i>
+                            </a>
+                            @*<a class="li-ic" style="color:#04508c">
+                                 <i class="fab fa-linkedin-in white-text mr-4"> </i>
+                                </a>*@
+                            <a class="ins-ic" href="https://www.instagram.com/santanderbankus/?hl=en" style="color:#04508c;font-size:25px;">
+                                <i class="fab fa-instagram white-text"> </i>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+    </div>
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -10,9 +10,7 @@ namespace MLPSProject.Controllers
 {
     public class LoanController : Controller
     {
-        static string upload1 = "";
-        static string upload2 = "";
-        static string upload3 = "";
+        
 
         private ApplicationDbContext dbContext = null;
         public LoanController()
@@ -29,7 +27,7 @@ namespace MLPSProject.Controllers
             return View();
         }
 
-        public ActionResult Self(int id)
+        public ActionResult Self(int id,int regisId)
         {
             LoanDetail loanDetail = new LoanDetail();
             loanDetail.PropertyDetailId = id;
@@ -60,56 +58,45 @@ namespace MLPSProject.Controllers
         }
 
         [HttpPost]
-        public ActionResult Others(PropertyDetail propertyDetail, RegisteredUser registeredUser)
+        public ActionResult Others(PropertyDetail propertyDetail,  RegisteredUser registeredUser,HttpPostedFileBase IdProofDoc, HttpPostedFileBase AddressProofDoc, HttpPostedFileBase PropertyAgreementDoc)
         {
             var userName = dbContext.RegisteredUsers.SingleOrDefault(c => c.vEmailID == registeredUser.vEmailID && c.vPassword == registeredUser.vPassword);
-
-            dbContext.PropertyDetails.Add(propertyDetail);
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(IdProofDoc.InputStream))
+            {
+                bytes = br.ReadBytes(IdProofDoc.ContentLength);
+            }
+            byte[] bytes2;
+            using (BinaryReader br2 = new BinaryReader(AddressProofDoc.InputStream))
+            {
+                bytes2 = br2.ReadBytes(AddressProofDoc.ContentLength);
+            }
+            byte[] bytes3;
+            using (BinaryReader br3 = new BinaryReader(PropertyAgreementDoc.InputStream))
+            {
+                bytes3 = br3.ReadBytes(PropertyAgreementDoc.ContentLength);
+            }
+            int pId = propertyDetail.Id;
+            dbContext.PropertyDetails.Add(new PropertyDetail
+            {
+                IdProof = bytes,
+                AddressProof = bytes2,
+                PropertyAgreement = bytes3,
+                vPropertyHolderName = propertyDetail.vPropertyHolderName,
+                vPropertyType = propertyDetail.vPropertyType,
+                PropertyAddress = propertyDetail.PropertyAddress
+            });
+            //dbContext.PropertyDetails.Add(propertyDetail);
+            
             dbContext.SaveChanges();
-            return RedirectToAction("Self", "Loan", new { id = propertyDetail.Id });
+            var larId = dbContext.PropertyDetails.OrderByDescending(x => x.Id).Take(1).FirstOrDefault();
+            var regID = Session["regId"];
+            return RedirectToAction("Self", "Loan", new { id = larId.Id, regisId = regID });
 
-            //LoanPropertyViewModel viewModel = new LoanPropertyViewModel();
-            //LoanDetail detail = new LoanDetail();
-            //PropertyDetail propertyDetail1 = new PropertyDetail();
-            //viewModel.LoanDetail = detail;
-            //viewModel.PropertyDetail = propertyDetail;
-            //return View(viewModel);
+            
         }
 
-        public void UploadIDProof(PropertyDetail propertyDetail, HttpPostedFileBase ImageFile)
-        {
-            string fileName = Path.GetFileNameWithoutExtension(ImageFile.FileName);
-            string File = string.Format("{0}.{1}", Guid.NewGuid(), Path.GetFileName(ImageFile.FileName));
-            string extension = Path.GetExtension(ImageFile.FileName);
-            string targetPath = @"E:\MLPSProject\MLPSProject\documents";
-            fileName = Path.Combine(targetPath, fileName);
-            LoanController.upload1 = fileName;
-            ImageFile.SaveAs(fileName);
-
-        }
-
-        public void UploadIDProof1(HttpPostedFileBase ImageFile)
-        {
-            string fileName = Path.GetFileNameWithoutExtension(ImageFile.FileName);
-            string File = string.Format("{0}.{1}", Guid.NewGuid(), Path.GetFileName(ImageFile.FileName));
-            string extension = Path.GetExtension(ImageFile.FileName);
-            string targetPath = @"E:\MLPSProject\MLPSProject\documents";
-            fileName = Path.Combine(targetPath, fileName);
-            LoanController.upload2 = fileName;
-            ImageFile.SaveAs(fileName);
-
-        }
-        public void UploadIDProof3(HttpPostedFileBase ImageFile)
-        {
-            string fileName = Path.GetFileNameWithoutExtension(ImageFile.FileName);
-            string File = string.Format("{0}.{1}", Guid.NewGuid(), Path.GetFileName(ImageFile.FileName));
-            string extension = Path.GetExtension(ImageFile.FileName);
-            string targetPath = @"E:\MLPSProject\MLPSProject\documents";
-            fileName = Path.Combine(targetPath, fileName);
-            LoanController.upload3 = fileName;
-            ImageFile.SaveAs(fileName);
-
-        }
+        
 
 
     }
